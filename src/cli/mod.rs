@@ -17,20 +17,29 @@ enum Command {
         /// Project name
         name: String,
     },
-    /// Compile assembly source files
+    /// Compile source files
     Build {
         /// Specific source file (without extension)
         name: Option<String>,
+        /// Print commands as they execute
+        #[arg(short, long)]
+        verbose: bool,
     },
     /// Build and run in QEMU
     Run {
         /// Specific source file (without extension)
         name: Option<String>,
+        /// Print commands as they execute
+        #[arg(short, long)]
+        verbose: bool,
     },
     /// Start QEMU with GDB attached
     Debug {
         /// Specific source file (without extension)
         name: Option<String>,
+        /// Print commands as they execute
+        #[arg(short, long)]
+        verbose: bool,
     },
     /// Disassemble the ELF binary
     Disasm {
@@ -61,9 +70,9 @@ impl Cli {
     pub fn run(self) -> Result<()> {
         match self.command {
             Command::New { name } => commands::new::run(&name),
-            Command::Build { name } => commands::build::run(name.as_deref()),
-            Command::Run { name } => commands::run::run(name.as_deref()),
-            Command::Debug { name } => commands::debug::run(name.as_deref()),
+            Command::Build { name, verbose } => commands::build::run(name.as_deref(), verbose),
+            Command::Run { name, verbose } => commands::run::run(name.as_deref(), verbose),
+            Command::Debug { name, verbose } => commands::debug::run(name.as_deref(), verbose),
             Command::Disasm { name } => commands::disasm::run(name.as_deref()),
             Command::Symbols { name } => commands::symbols::run(name.as_deref()),
             Command::Sections { name } => commands::sections::run(name.as_deref()),

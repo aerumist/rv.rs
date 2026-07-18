@@ -9,13 +9,19 @@ pub struct Config {
     #[serde(default)]
     pub target: Target,
     #[serde(default)]
-    pub compiler: Compiler,
+    pub sources: Sources,
     #[serde(default)]
-    pub qemu: Qemu,
-    #[serde(default)]
-    pub paths: Paths,
+    pub toolchain: Toolchain,
     #[serde(default)]
     pub build: Build,
+    #[serde(default)]
+    pub link: Link,
+    #[serde(default)]
+    pub compile: Compile,
+    #[serde(default)]
+    pub output: Output,
+    #[serde(default)]
+    pub qemu: Qemu,
 }
 
 #[derive(Debug, Deserialize)]
@@ -33,15 +39,19 @@ pub struct Target {
 
 impl Default for Target {
     fn default() -> Self {
-        Self {
-            arch: default_arch(),
-            abi: default_abi(),
-        }
+        Self { arch: default_arch(), abi: default_abi() }
     }
 }
 
+#[derive(Debug, Deserialize, Default)]
+pub struct Sources {
+    pub main: Option<String>,
+    #[serde(default)]
+    pub c_files: Vec<String>,
+}
+
 #[derive(Debug, Deserialize)]
-pub struct Compiler {
+pub struct Toolchain {
     #[serde(default = "default_cc")]
     pub cc: String,
     #[serde(default = "default_objdump")]
@@ -54,7 +64,7 @@ pub struct Compiler {
     pub gdb: String,
 }
 
-impl Default for Compiler {
+impl Default for Toolchain {
     fn default() -> Self {
         Self {
             cc: default_cc(),
@@ -67,21 +77,93 @@ impl Default for Compiler {
 }
 
 #[derive(Debug, Deserialize)]
+pub struct Build {
+    #[serde(default = "default_opt_level")]
+    pub optimization: String,
+    #[serde(default, rename = "static")]
+    pub static_link: bool,
+    #[serde(default)]
+    pub compiler_flags: Vec<String>,
+    #[serde(default)]
+    pub assembler_flags: Vec<String>,
+    #[serde(default)]
+    pub linker_flags: Vec<String>,
+}
+
+impl Default for Build {
+    fn default() -> Self {
+        Self {
+            optimization: default_opt_level(),
+            static_link: false,
+            compiler_flags: Vec::new(),
+            assembler_flags: Vec::new(),
+            linker_flags: Vec::new(),
+        }
+    }
+}
+
+#[derive(Debug, Deserialize, Default)]
+pub struct Link {
+    #[serde(default = "default_link_driver")]
+    pub driver: LinkDriver,
+    #[serde(default)]
+    pub libraries: Vec<String>,
+    #[serde(default)]
+    pub library_paths: Vec<String>,
+    pub script: Option<String>,
+}
+
+#[derive(Debug, Deserialize, Default, Clone, Copy, PartialEq, Eq)]
+#[serde(rename_all = "lowercase")]
+pub enum LinkDriver {
+    #[default]
+    Ld,
+    Cc,
+}
+
+fn default_link_driver() -> LinkDriver { LinkDriver::Ld }
+
+#[derive(Debug, Deserialize)]
+pub struct Compile {
+    #[serde(default)]
+    pub generate_debug_symbols: bool,
+}
+
+impl Default for Compile {
+    fn default() -> Self {
+        Self { generate_debug_symbols: false }
+    }
+}
+
+#[derive(Debug, Deserialize)]
+pub struct Output {
+    #[serde(default = "default_build_dir")]
+    pub directory: String,
+    pub binary: Option<String>,
+}
+
+impl Default for Output {
+    fn default() -> Self {
+        Self { directory: default_build_dir(), binary: None }
+    }
+}
+
+#[derive(Debug, Deserialize)]
 pub struct Qemu {
-    #[serde(default = "default_qemu_user")]
-    pub user: String,
-    #[serde(default = "default_qemu_system")]
-    pub system: String,
     #[serde(default = "default_qemu_mode")]
     pub mode: QemuMode,
+    #[serde(default = "default_qemu_binary")]
+    pub binary: String,
+    #[serde(default)]
+    pub args: Vec<String>,
 }
 
 impl Default for Qemu {
     fn default() -> Self {
         Self {
-            user: default_qemu_user(),
-            system: default_qemu_system(),
             mode: default_qemu_mode(),
+            binary: default_qemu_binary(),
+            args: Vec::new(),
         }
     }
 }
@@ -94,37 +176,6 @@ pub enum QemuMode {
     System,
 }
 
-#[derive(Debug, Deserialize)]
-pub struct Paths {
-    #[serde(default = "default_source")]
-    pub source: String,
-    #[serde(default = "default_build")]
-    pub build: String,
-}
-
-impl Default for Paths {
-    fn default() -> Self {
-        Self {
-            source: default_source(),
-            build: default_build(),
-        }
-    }
-}
-
-#[derive(Debug, Deserialize)]
-pub struct Build {
-    #[serde(default = "default_opt_level")]
-    pub opt_level: String,
-}
-
-impl Default for Build {
-    fn default() -> Self {
-        Self {
-            opt_level: default_opt_level(),
-        }
-    }
-}
-
 fn default_arch() -> String { "rv64imac".into() }
 fn default_abi() -> String { "lp64".into() }
 fn default_cc() -> String { "riscv64-elf-gcc".into() }
@@ -132,11 +183,9 @@ fn default_objdump() -> String { "riscv64-elf-objdump".into() }
 fn default_nm() -> String { "riscv64-elf-nm".into() }
 fn default_readelf() -> String { "riscv64-elf-readelf".into() }
 fn default_gdb() -> String { "riscv64-elf-gdb".into() }
-fn default_qemu_user() -> String { "qemu-riscv64".into() }
-fn default_qemu_system() -> String { "qemu-system-riscv64".into() }
+fn default_qemu_binary() -> String { "qemu-riscv64".into() }
 fn default_qemu_mode() -> QemuMode { QemuMode::User }
-fn default_source() -> String { "src".into() }
-fn default_build() -> String { "build".into() }
+fn default_build_dir() -> String { "build".into() }
 fn default_opt_level() -> String { "0".into() }
 
 impl Config {
@@ -173,25 +222,34 @@ impl Config {
     }
 
     pub fn source_dir(&self) -> Result<PathBuf> {
-        Ok(self.project_root()?.join(&self.paths.source))
+        Ok(self.project_root()?.join("src"))
     }
 
     pub fn build_dir(&self) -> Result<PathBuf> {
-        Ok(self.project_root()?.join(&self.paths.build))
+        Ok(self.project_root()?.join(&self.output.directory))
     }
 
     pub fn elf_path(&self, name: &str) -> Result<PathBuf> {
-        Ok(self.build_dir()?.join(format!("{name}.elf")))
+        let dir = self.build_dir()?;
+        match &self.output.binary {
+            Some(bin) => Ok(dir.join(bin)),
+            None => Ok(dir.join(format!("{name}.elf"))),
+        }
     }
 
-    /// Resolve target name: use explicit name, or fall back to project name
     pub fn resolve_target(&self, name: Option<&str>) -> String {
         name.unwrap_or(&self.project.name).to_string()
     }
 
-    /// Find the source file for a given target name
     pub fn find_source(&self, name: &str) -> Result<PathBuf> {
         let src = self.source_dir()?;
+        if let Some(main) = &self.sources.main {
+            let path = src.join(main);
+            if path.exists() {
+                return Ok(path);
+            }
+            bail!("Source file '{}' (from [sources] main) not found in {}", main, src.display());
+        }
         for ext in &["S", "s", "asm"] {
             let path = src.join(format!("{name}.{ext}"));
             if path.exists() {
@@ -205,7 +263,6 @@ impl Config {
         )
     }
 
-    /// Collect all assembly source files
     pub fn all_sources(&self) -> Result<Vec<PathBuf>> {
         let src = self.source_dir()?;
         if !src.exists() {
@@ -223,11 +280,17 @@ impl Config {
                 }
             }
         }
+        for c_file in &self.sources.c_files {
+            let path = src.join(c_file);
+            if !path.exists() {
+                bail!("C source '{}' (from [sources] c_files) not found in {}", c_file, src.display());
+            }
+            files.push(path);
+        }
         if files.is_empty() {
-            bail!("No assembly files found in {}.", src.display());
+            bail!("No source files found in {}.", src.display());
         }
         files.sort();
         Ok(files)
     }
-
 }

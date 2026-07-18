@@ -12,45 +12,50 @@ pub fn run(config: &Config, elf: &std::path::Path) -> Result<()> {
         elf.display()
     );
 
-    // Start QEMU waiting for GDB
-    let (qemu_cmd, qemu_args) = match config.qemu.mode {
-        QemuMode::User => (
-            &config.qemu.user,
-            vec!["-g".into(), "1234".into(), elf.to_string_lossy().to_string()],
-        ),
-        QemuMode::System => (
-            &config.qemu.system,
-            vec![
-                "-nographic".into(),
-                "-machine".into(),
-                "virt".into(),
-                "-bios".into(),
-                "none".into(),
-                "-kernel".into(),
-                elf.to_string_lossy().to_string(),
-                "-s".into(),
-                "-S".into(),
-            ],
-        ),
-    };
+    let mut qemu_args: Vec<String> = config.qemu.args.clone();
+
+    match config.qemu.mode {
+        QemuMode::User => {
+            qemu_args.extend(["-g".into(), "1234".into(), elf.to_string_lossy().to_string()]);
+        }
+        QemuMode::System => {
+            if qemu_args.is_empty() {
+                qemu_args.extend([
+                    "-nographic".into(),
+                    "-machine".into(),
+                    "virt".into(),
+                    "-bios".into(),
+                    "none".into(),
+                    "-kernel".into(),
+                    elf.to_string_lossy().to_string(),
+                    "-s".into(),
+                    "-S".into(),
+                ]);
+            } else {
+                qemu_args.extend([
+                    elf.to_string_lossy().to_string(),
+                    "-s".into(),
+                    "-S".into(),
+                ]);
+            }
+        }
+    }
 
     println!(
         "{:>12} QEMU on :1234 (waiting for GDB)",
         "Starting".cyan().bold()
     );
 
-    let mut qemu = Command::new(qemu_cmd)
+    let mut qemu = Command::new(&config.qemu.binary)
         .args(&qemu_args)
         .stdin(Stdio::null())
         .stdout(Stdio::piped())
         .stderr(Stdio::piped())
         .spawn()
-        .with_context(|| format!("Failed to start QEMU '{qemu_cmd}'."))?;
+        .with_context(|| format!("Failed to start QEMU '{}'.", config.qemu.binary))?;
 
-    // Give QEMU a moment to open the port
     std::thread::sleep(std::time::Duration::from_millis(200));
 
-    // Write a temporary GDB script
     let gdb_script = format!(
         "target remote :1234\n\
          file {elf}\n\
@@ -67,7 +72,7 @@ pub fn run(config: &Config, elf: &std::path::Path) -> Result<()> {
         "Connecting".cyan().bold()
     );
 
-    let _gdb_status = Command::new(&config.compiler.gdb)
+    let _gdb_status = Command::new(&config.toolchain.gdb)
         .args(["-x", &gdb_script_path.to_string_lossy()])
         .stdin(Stdio::inherit())
         .stdout(Stdio::inherit())
@@ -76,12 +81,11 @@ pub fn run(config: &Config, elf: &std::path::Path) -> Result<()> {
         .with_context(|| {
             format!(
                 "Failed to run GDB '{}'.\n\
-                 Install with: pacman -S riscv64-elf-gdb",
-                config.compiler.gdb
+                 Install the required toolchain or update [toolchain] in rv.toml",
+                config.toolchain.gdb
             )
         })?;
 
-    // Clean up QEMU
     let _ = qemu.kill();
     let _ = qemu.wait();
     let _ = std::fs::remove_file(&gdb_script_path);

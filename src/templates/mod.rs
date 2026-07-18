@@ -7,24 +7,41 @@ name = "{name}"
 arch = "rv64imac"
 abi = "lp64"
 
-[compiler]
+# [sources]
+# main = "main.S"
+# c_files = ["helper.c"]
+
+[toolchain]
 cc = "riscv64-elf-gcc"
 objdump = "riscv64-elf-objdump"
 nm = "riscv64-elf-nm"
 readelf = "riscv64-elf-readelf"
 gdb = "riscv64-elf-gdb"
 
-[qemu]
-user = "qemu-riscv64"
-system = "qemu-system-riscv64"
-mode = "user"
-
-[paths]
-source = "src"
-build = "build"
-
 [build]
-opt_level = "0"
+optimization = "0"
+# static_link = false
+# compiler_flags = ["-Wall"]
+# assembler_flags = []
+# linker_flags = []
+
+# [link]
+# driver = "ld"        # "ld" = bare metal (-nostdlib), "cc" = compiler driver (libc)
+# libraries = []
+# library_paths = []
+# script = "linker.ld"
+
+# [compile]
+# generate_debug_symbols = false
+
+[output]
+directory = "build"
+# binary = "{name}.elf"
+
+[qemu]
+mode = "user"
+binary = "qemu-riscv64"
+# args = ["-L", "/usr/riscv64-linux-gnu"]
 "#
     )
 }

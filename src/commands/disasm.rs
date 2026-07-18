@@ -11,13 +11,12 @@ pub fn run(name: Option<&str>) -> Result<()> {
     let config = Config::load()?;
     let target = config.resolve_target(name);
 
-    // Build first to ensure ELF exists
-    compiler::gcc::run(&config, Some(&target))?;
+    compiler::gcc::run(&config, Some(&target), false)?;
     let elf = config.elf_path(&target)?;
 
     println!("{:>12} {}", "Disasm".cyan().bold(), elf.display());
 
-    let output = Command::new(&config.compiler.objdump)
+    let output = Command::new(&config.toolchain.objdump)
         .args(["-d", "-M", "no-aliases"])
         .arg(&elf)
         .stderr(Stdio::piped())
@@ -26,7 +25,7 @@ pub fn run(name: Option<&str>) -> Result<()> {
             format!(
                 "Failed to run objdump '{}'.\n\
                  Is the RISC-V toolchain installed?",
-                config.compiler.objdump
+                config.toolchain.objdump
             )
         })?;
 

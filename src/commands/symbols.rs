@@ -10,17 +10,17 @@ use crate::config::Config;
 pub fn run(name: Option<&str>) -> Result<()> {
     let config = Config::load()?;
     let target = config.resolve_target(name);
-    compiler::gcc::run(&config, Some(&target))?;
+    compiler::gcc::run(&config, Some(&target), false)?;
     let elf = config.elf_path(&target)?;
 
     println!("{:>12} {}", "Symbols".cyan().bold(), elf.display());
 
-    let output = Command::new(&config.compiler.nm)
+    let output = Command::new(&config.toolchain.nm)
         .arg(&elf)
         .stderr(Stdio::piped())
         .output()
         .with_context(|| {
-            format!("Failed to run nm '{}'.", config.compiler.nm)
+            format!("Failed to run nm '{}'.", config.toolchain.nm)
         })?;
 
     if !output.status.success() {

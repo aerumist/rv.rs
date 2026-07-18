@@ -25,22 +25,21 @@ pub fn run() -> Result<()> {
         .watcher()
         .watch(&source_dir, notify::RecursiveMode::Recursive)?;
 
-    // Initial build
-    if let Err(e) = compiler::gcc::run(&config, None) {
+    if let Err(e) = compiler::gcc::run(&config, None, false) {
         eprintln!("{:>12} {e}", "Error".red().bold());
     }
 
     loop {
         match rx.recv() {
             Ok(Ok(events)) => {
-                let has_asm = events.iter().any(|e| {
+                let has_source = events.iter().any(|e| {
                     e.path
                         .extension()
-                        .is_some_and(|ext| matches!(ext.to_str(), Some("S" | "s" | "asm")))
+                        .is_some_and(|ext| matches!(ext.to_str(), Some("S" | "s" | "asm" | "c")))
                 });
-                if has_asm {
+                if has_source {
                     println!("\n{:>12} change detected", "Rebuild".yellow().bold());
-                    if let Err(e) = compiler::gcc::run(&config, None) {
+                    if let Err(e) = compiler::gcc::run(&config, None, false) {
                         eprintln!("{:>12} {e}", "Error".red().bold());
                     }
                 }

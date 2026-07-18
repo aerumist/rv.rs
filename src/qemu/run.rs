@@ -6,25 +6,32 @@ use colored::Colorize;
 use crate::config::{Config, QemuMode};
 
 pub fn run(config: &Config, elf: &std::path::Path) -> Result<()> {
-    let (cmd, args) = match config.qemu.mode {
-        QemuMode::User => (&config.qemu.user, vec![elf.to_string_lossy().to_string()]),
-        QemuMode::System => (
-            &config.qemu.system,
-            vec![
-                "-nographic".into(),
-                "-machine".into(),
-                "virt".into(),
-                "-bios".into(),
-                "none".into(),
-                "-kernel".into(),
-                elf.to_string_lossy().to_string(),
-            ],
-        ),
-    };
+    let mut args: Vec<String> = config.qemu.args.clone();
+
+    match config.qemu.mode {
+        QemuMode::User => {
+            args.push(elf.to_string_lossy().to_string());
+        }
+        QemuMode::System => {
+            if args.is_empty() {
+                args.extend([
+                    "-nographic".into(),
+                    "-machine".into(),
+                    "virt".into(),
+                    "-bios".into(),
+                    "none".into(),
+                    "-kernel".into(),
+                    elf.to_string_lossy().to_string(),
+                ]);
+            } else {
+                args.push(elf.to_string_lossy().to_string());
+            }
+        }
+    }
 
     println!("{:>12} {}", "Running".green().bold(), elf.display());
 
-    let status = Command::new(cmd)
+    let status = Command::new(&config.qemu.binary)
         .args(&args)
         .stdin(Stdio::inherit())
         .stdout(Stdio::inherit())
@@ -32,14 +39,14 @@ pub fn run(config: &Config, elf: &std::path::Path) -> Result<()> {
         .status()
         .with_context(|| {
             format!(
-                "Failed to run QEMU '{cmd}'.\n\
-                 Is QEMU installed? Try: pacman -S qemu-user"
+                "Failed to run QEMU '{}'.\n\
+                 Is QEMU installed?",
+                config.qemu.binary
             )
         })?;
 
     if !status.success() {
         let code = status.code().unwrap_or(-1);
-        // QEMU user mode returns the guest exit code
         std::process::exit(code);
     }
 
