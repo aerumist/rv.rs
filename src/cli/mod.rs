@@ -1,0 +1,74 @@
+use anyhow::Result;
+use clap::{Parser, Subcommand};
+
+use crate::commands;
+
+#[derive(Parser)]
+#[command(name = "rv", about = "RISC-V assembly development tool")]
+pub struct Cli {
+    #[command(subcommand)]
+    command: Command,
+}
+
+#[derive(Subcommand)]
+enum Command {
+    /// Create a new RISC-V assembly project
+    New {
+        /// Project name
+        name: String,
+    },
+    /// Compile assembly source files
+    Build {
+        /// Specific source file (without extension)
+        name: Option<String>,
+    },
+    /// Build and run in QEMU
+    Run {
+        /// Specific source file (without extension)
+        name: Option<String>,
+    },
+    /// Start QEMU with GDB attached
+    Debug {
+        /// Specific source file (without extension)
+        name: Option<String>,
+    },
+    /// Disassemble the ELF binary
+    Disasm {
+        /// Specific source file (without extension)
+        name: Option<String>,
+    },
+    /// Display symbols from the ELF binary
+    Symbols {
+        /// Specific source file (without extension)
+        name: Option<String>,
+    },
+    /// Display ELF sections
+    Sections {
+        /// Specific source file (without extension)
+        name: Option<String>,
+    },
+    /// Remove the build directory
+    Clean,
+    /// Watch source files and rebuild on changes
+    Watch,
+}
+
+impl Cli {
+    pub fn parse_args() -> Self {
+        Self::parse()
+    }
+
+    pub fn run(self) -> Result<()> {
+        match self.command {
+            Command::New { name } => commands::new::run(&name),
+            Command::Build { name } => commands::build::run(name.as_deref()),
+            Command::Run { name } => commands::run::run(name.as_deref()),
+            Command::Debug { name } => commands::debug::run(name.as_deref()),
+            Command::Disasm { name } => commands::disasm::run(name.as_deref()),
+            Command::Symbols { name } => commands::symbols::run(name.as_deref()),
+            Command::Sections { name } => commands::sections::run(name.as_deref()),
+            Command::Clean => commands::clean::run(),
+            Command::Watch => commands::watch::run(),
+        }
+    }
+}

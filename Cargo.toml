@@ -1,0 +1,20 @@
+[package]
+name = "rv"
+version = "0.1.0"
+edition = "2024"
+description = "A Cargo-like build tool for RISC-V assembly development"
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+colored = "3"
+notify = "8"
+notify-debouncer-mini = "0.6"
+serde = { version = "1", features = ["derive"] }
+thiserror = "2"
+toml = "0.8"
+walkdir = "2"
+
+[profile.release]
+strip = true
+lto = true
