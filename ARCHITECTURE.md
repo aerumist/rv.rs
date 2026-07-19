@@ -55,7 +55,7 @@ src/
 ├── qemu/
 │   └── run.rs           QEMU process management
 └── templates/
-    └── mod.rs           Scaffolding templates (rv.toml, starter .S, .gitignore)
+    └── mod.rs           Scaffolding templates (starter .S, .c, .gitignore)
 ```
 
 ## Control Flow
@@ -142,6 +142,19 @@ Currently, rv supports GCC exclusively. The tool names and flag conventions are 
 2. Create `src/commands/<name>.rs`
 3. Export from `commands/mod.rs`
 4. Wire it into `Cli::run()` match
+
+### Project Scaffolding (`rv new`)
+
+The `new` command is interactive (via `dialoguer`). It:
+
+1. Scans PATH for known RISC-V compiler prefixes
+2. Presents template, compiler, architecture, and QEMU mode prompts
+3. Renders `rv.toml` from user selections (no hardcoded defaults baked into the config)
+4. Writes template source files based on the chosen template
+
+Templates live in `src/templates/mod.rs` as string-returning functions. The `render_toml` helper in `commands/new.rs` generates config from the interactive selections.
+
+The `--template` flag can pre-select the template, but other prompts always run interactively.
 
 ### Adding a config field
 

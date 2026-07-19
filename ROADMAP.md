@@ -14,6 +14,7 @@ This roadmap reflects current plans for rv. Priorities may shift based on commun
 
 - [x] C source file compilation
 - [x] Verbose mode (`--verbose`)
+- [x] Project templates (`rv new --template qemu`)
 - [ ] Improved error messages with source context
 - [ ] Config validation with actionable diagnostics
 

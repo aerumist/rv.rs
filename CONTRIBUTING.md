@@ -47,10 +47,16 @@ cargo install --path .   # install to ~/.cargo/bin
 A formal test suite does not exist yet. Verify changes by building the project and manually testing affected subcommands against a sample project:
 
 ```bash
-rv new test_project
+rv new test_project          # interactive setup
 cd test_project
 rv build --verbose
 rv run
+```
+
+Or with a template to skip most prompts:
+
+```bash
+rv new test_project --template qemu
 ```
 
 If you'd like to contribute tests, that is very welcome.

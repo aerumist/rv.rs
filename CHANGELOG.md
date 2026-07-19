@@ -6,6 +6,9 @@ All notable changes to this project will be automatically documented here.
 
 ### 🚀 Features
 
+- Interactive project setup with compiler detection (`rv new`)
+- Project templates: `default` (asm-only) and `qemu` (mixed ASM + C)
+- `--template` flag for non-interactive template selection
 - Update 17 files across 7 directories
 - Add GitHub Actions CI workflow and CI status badge to README
 

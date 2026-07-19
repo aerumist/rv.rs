@@ -27,7 +27,8 @@ The binary is structured as a command dispatcher:
 - `src/compiler/gcc.rs` — assembles `.S`/`.s`/`.asm` files and links ELF via `riscv64-elf-gcc`
 - `src/qemu/run.rs` — executes ELF in QEMU (user or system mode)
 - `src/gdb/debug.rs` — spawns QEMU with GDB stub, writes a temp `.gdbinit`, launches GDB
-- `src/templates/mod.rs` — string templates for `rv new` scaffolding (`rv.toml`, starter `.S`, `.gitignore`)
+- `src/templates/mod.rs` — string templates for `rv new` scaffolding (starter `.S`, `.c`, `.gitignore`)
+- `src/commands/new.rs` — interactive project setup (compiler detection, template selection via `dialoguer`)
 
 **Control flow:** CLI parses args → loads `rv.toml` from cwd (walking up) → dispatches to command module → command calls into compiler/qemu/gdb as needed.
 

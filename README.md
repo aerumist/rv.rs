@@ -73,6 +73,8 @@ Support for bare-metal targets, ESP32-C6 boards, mixed C projects, and more is p
 ## Features
 
 - Cargo-like workflow (`rv new`, `rv build`, `rv run`, `rv debug`)
+- Interactive project setup with compiler detection
+- Project templates (assembly-only, mixed ASM + C)
 - Configuration-driven builds via `rv.toml`
 - Mixed C and assembly projects
 - QEMU integration (user-mode and system-mode)
@@ -114,12 +116,33 @@ pacman -S riscv64-elf-gcc riscv64-elf-binutils qemu-user qemu-system-riscv
 
 ```bash
 rv new hello
+```
+
+The interactive setup will:
+1. Detect installed RISC-V compilers on your PATH
+2. Let you choose a template (assembly-only or mixed ASM + C)
+3. Configure architecture, ABI, and QEMU mode
+
+Then build and run:
+
+```bash
 cd hello
 rv build
 rv run
 ```
 
-This creates a project with a hello-world assembly program that uses Linux syscalls to print and exit.
+Or skip the prompts with a template flag:
+
+```bash
+rv new hello --template qemu   # Mixed ASM + C project for QEMU user mode
+```
+
+### Templates
+
+| Template | Description |
+|----------|-------------|
+| `default` | Assembly-only hello world using Linux syscalls |
+| `qemu` | Mixed ASM + C with cross-language calls (fibonacci example) |
 
 ### Generated `rv.toml`
 
@@ -144,17 +167,17 @@ binary = "qemu-riscv64"
 
 ## Commands
 
-| Command              | Description                                   |
-| -------------------- | --------------------------------------------- |
-| `rv new <name>`      | Create a new project with starter assembly    |
-| `rv build [name]`    | Compile sources to ELF                        |
-| `rv run [name]`      | Build and run in QEMU                         |
-| `rv debug [name]`    | Build, start QEMU with GDB server, attach GDB |
-| `rv disasm [name]`   | Disassemble the ELF with objdump              |
-| `rv symbols [name]`  | List symbols with nm                          |
-| `rv sections [name]` | Show ELF sections with readelf                |
-| `rv clean`           | Remove the build directory                    |
-| `rv watch`           | Rebuild on source file changes                |
+| Command              | Description                                    |
+| -------------------- | ---------------------------------------------- |
+| `rv new <name>`      | Interactive project setup with compiler detection |
+| `rv build [name]`    | Compile sources to ELF                         |
+| `rv run [name]`      | Build and run in QEMU                          |
+| `rv debug [name]`    | Build, start QEMU with GDB server, attach GDB  |
+| `rv disasm [name]`   | Disassemble the ELF with objdump               |
+| `rv symbols [name]`  | List symbols with nm                           |
+| `rv sections [name]` | Show ELF sections with readelf                 |
+| `rv clean`           | Remove the build directory                     |
+| `rv watch`           | Rebuild on source file changes                 |
 
 Commands accepting `[name]` default to the project name from `rv.toml`.
 
@@ -301,7 +324,7 @@ See [ROADMAP.md](ROADMAP.md) for the full plan. Highlights:
 
 - Bare-metal target support with linker scripts
 - ESP32-C6 support
-- Project templates
+- More project templates (bare-metal, embedded)
 - Plugin system
 
 ## Contributing

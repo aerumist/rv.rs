@@ -16,6 +16,9 @@ enum Command {
     New {
         /// Project name
         name: String,
+        /// Project template: default, qemu-asm, qemu-mixed
+        #[arg(short, long, default_value = "default")]
+        template: String,
     },
     /// Compile source files
     Build {
@@ -69,7 +72,7 @@ impl Cli {
 
     pub fn run(self) -> Result<()> {
         match self.command {
-            Command::New { name } => commands::new::run(&name),
+            Command::New { name, template } => commands::new::run(&name, &template),
             Command::Build { name, verbose } => commands::build::run(name.as_deref(), verbose),
             Command::Run { name, verbose } => commands::run::run(name.as_deref(), verbose),
             Command::Debug { name, verbose } => commands::debug::run(name.as_deref(), verbose),

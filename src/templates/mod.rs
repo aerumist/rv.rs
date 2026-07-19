@@ -1,51 +1,3 @@
-pub fn rv_toml(name: &str) -> String {
-    format!(
-        r#"[project]
-name = "{name}"
-
-[target]
-arch = "rv64imac"
-abi = "lp64"
-
-# [sources]
-# main = "main.S"
-# c_files = ["helper.c"]
-
-[toolchain]
-cc = "riscv64-elf-gcc"
-objdump = "riscv64-elf-objdump"
-nm = "riscv64-elf-nm"
-readelf = "riscv64-elf-readelf"
-gdb = "riscv64-elf-gdb"
-
-[build]
-optimization = "0"
-# static_link = false
-# compiler_flags = ["-Wall"]
-# assembler_flags = []
-# linker_flags = []
-
-# [link]
-# driver = "ld"        # "ld" = bare metal (-nostdlib), "cc" = compiler driver (libc)
-# libraries = []
-# library_paths = []
-# script = "linker.ld"
-
-# [compile]
-# generate_debug_symbols = false
-
-[output]
-directory = "build"
-# binary = "{name}.elf"
-
-[qemu]
-mode = "user"
-binary = "qemu-riscv64"
-# args = ["-L", "/usr/riscv64-linux-gnu"]
-"#
-    )
-}
-
 pub fn starter_asm(name: &str) -> String {
     format!(
         r#"# {name}.S — RISC-V assembly program
@@ -76,4 +28,56 @@ _start:
 
 pub fn gitignore() -> &'static str {
     "build/\n"
+}
+
+pub fn starter_asm_qemu(name: &str) -> String {
+    format!(
+        r#"# {name} — RISC-V assembly + C mixed project
+# Demonstrates calling a C function from assembly running in QEMU user mode.
+
+.section .text
+.global _start
+.extern print_banner, compute_fibonacci
+
+_start:
+    # Call C function to print a welcome banner
+    call print_banner
+
+    # Compute fibonacci(10) in C, result in a0
+    li a0, 10
+    call compute_fibonacci
+
+    # Exit with fibonacci result as the exit code
+    # (rv run will show: "Process exited with code 55")
+    li a7, 93
+    ecall
+"#
+    )
+}
+
+pub fn starter_c_qemu() -> &'static str {
+    r#"// helper.c — C helper functions called from assembly
+// Compiled alongside the assembly entry point and linked via gcc driver.
+
+#include <unistd.h>
+
+static long fib(int n) {
+    long a = 0, b = 1;
+    for (int i = 0; i < n; i++) {
+        long tmp = a + b;
+        a = b;
+        b = tmp;
+    }
+    return a;
+}
+
+void print_banner(void) {
+    const char *msg = "=== RISC-V QEMU Mixed ASM+C Project ===\n";
+    write(1, msg, 41);
+}
+
+long compute_fibonacci(int n) {
+    return fib(n);
+}
+"#
 }
