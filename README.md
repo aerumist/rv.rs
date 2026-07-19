@@ -2,14 +2,14 @@
 
 **A Cargo-like CLI for RISC-V assembly and C development.**
 
-<!-- Replace YOUR_USERNAME/rv with the actual GitHub path -->
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Rust](https://img.shields.io/badge/Rust-2024_edition-orange.svg)](https://www.rust-lang.org/)
-[![GitHub stars](https://img.shields.io/github/stars/YOUR_USERNAME/rv?style=flat)](https://github.com/YOUR_USERNAME/rv/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/YOUR_USERNAME/rv)](https://github.com/YOUR_USERNAME/rv/issues)
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/YOUR_USERNAME/rv)](https://github.com/YOUR_USERNAME/rv/pulls)
-[![Last commit](https://img.shields.io/github/last-commit/YOUR_USERNAME/rv)](https://github.com/YOUR_USERNAME/rv/commits)
+<p align="center">
+  <a href="LICENSE"><img src="https://shieldcn.dev/github/license/aerumist/rv.svg" alt="License: MIT"></a>
+  <a href="https://www.rust-lang.org/"><img src="https://shieldcn.dev/badge/rust-2024-orange.svg?logo=rust" alt="Rust 2024"></a>
+  <img src="https://shieldcn.dev/badge/C-blue.svg?logo=c" alt="C">
+  <img src="https://shieldcn.dev/badge/RISC--V-black.svg?logo=riscv" alt="RISC-V">
+  <a href="https://www.qemu.org/"><img src="https://shieldcn.dev/badge/QEMU-orange.svg?logo=qemu" alt="QEMU"></a>
+  <a href="https://www.sourceware.org/gdb/"><img src="https://shieldcn.dev/badge/GDB-purple.svg?logo=gnu" alt="GDB"></a>
+</p>
 
 ---
 
@@ -93,17 +93,17 @@ binary = "qemu-riscv64"
 
 ## Commands
 
-| Command | Description |
-|---------|-------------|
-| `rv new <name>` | Create a new project with starter assembly |
-| `rv build [name]` | Compile sources to ELF |
-| `rv run [name]` | Build and run in QEMU |
-| `rv debug [name]` | Build, start QEMU with GDB server, attach GDB |
-| `rv disasm [name]` | Disassemble the ELF with objdump |
-| `rv symbols [name]` | List symbols with nm |
-| `rv sections [name]` | Show ELF sections with readelf |
-| `rv clean` | Remove the build directory |
-| `rv watch` | Rebuild on source file changes |
+| Command              | Description                                   |
+| -------------------- | --------------------------------------------- |
+| `rv new <name>`      | Create a new project with starter assembly    |
+| `rv build [name]`    | Compile sources to ELF                        |
+| `rv run [name]`      | Build and run in QEMU                         |
+| `rv debug [name]`    | Build, start QEMU with GDB server, attach GDB |
+| `rv disasm [name]`   | Disassemble the ELF with objdump              |
+| `rv symbols [name]`  | List symbols with nm                          |
+| `rv sections [name]` | Show ELF sections with readelf                |
+| `rv clean`           | Remove the build directory                    |
+| `rv watch`           | Rebuild on source file changes                |
 
 Commands accepting `[name]` default to the project name from `rv.toml`.
 
@@ -160,10 +160,10 @@ args = ["-L", "/usr/riscv64-linux-gnu"]
 
 ### Link drivers
 
-| Driver | Use case | Behavior |
-|--------|----------|----------|
-| `ld` (default) | Bare metal | Passes `-nostdlib`, you provide `_start` |
-| `cc` | User-mode with libc | Links crt startup, libc, libgcc automatically |
+| Driver         | Use case            | Behavior                                      |
+| -------------- | ------------------- | --------------------------------------------- |
+| `ld` (default) | Bare metal          | Passes `-nostdlib`, you provide `_start`      |
+| `cc`           | User-mode with libc | Links crt startup, libc, libgcc automatically |
 
 ## Supported Targets
 
