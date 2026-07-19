@@ -21,6 +21,13 @@
       <img src="https://shieldcn.dev/badge/rust-2024-orange.svg?logo=rust&variant=outline&theme=violet" alt="Rust 2024">
     </picture>
   </a>
+  <a href="https://github.com/aerumist/rv/actions">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/ci/aerumist/rv.svg?variant=outline&mode=dark&theme=violet">
+      <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/github/ci/aerumist/rv.svg?variant=outline&mode=light&theme=violet">
+      <img src="https://shieldcn.dev/github/ci/aerumist/rv.svg?variant=outline&theme=violet" alt="CI Status">
+    </picture>
+  </a>
   <a href="https://github.com/aerumist/rv/commits">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/last-commit/aerumist/rv.svg?variant=outline&mode=dark&theme=violet">
