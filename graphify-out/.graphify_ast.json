@@ -1,0 +1,4064 @@
+{
+  "nodes": [
+    {
+      "id": "claude_scripts_post_commit_changelog",
+      "label": "post-commit-changelog.sh",
+      "file_type": "code",
+      "source_file": ".claude/scripts/post-commit-changelog.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast"
+    },
+    {
+      "id": "claude_scripts_post_commit_changelog_sh__entry",
+      "label": "post-commit-changelog.sh script",
+      "file_type": "code",
+      "source_file": ".claude/scripts/post-commit-changelog.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast"
+    },
+    {
+      "id": "claude_scripts_post_edit_hook",
+      "label": "post-edit-hook.sh",
+      "file_type": "code",
+      "source_file": ".claude/scripts/post-edit-hook.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast"
+    },
+    {
+      "id": "claude_scripts_post_edit_hook_sh__entry",
+      "label": "post-edit-hook.sh script",
+      "file_type": "code",
+      "source_file": ".claude/scripts/post-edit-hook.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast"
+    },
+    {
+      "id": "claude_scripts_post_edit_hook_fail",
+      "label": "fail()",
+      "file_type": "code",
+      "source_file": ".claude/scripts/post-edit-hook.sh",
+      "source_location": "L12",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "_origin": "ast"
+    },
+    {
+      "id": "claude_scripts_post_edit_hook_describe_changes",
+      "label": "describe_changes()",
+      "file_type": "code",
+      "source_file": ".claude/scripts/post-edit-hook.sh",
+      "source_location": "L64",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "_origin": "ast"
+    },
+    {
+      "id": "src_cli_mod",
+      "label": "mod.rs",
+      "file_type": "code",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_cli_mod_cli",
+      "label": "Cli",
+      "file_type": "code",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L8",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_cli_mod_command",
+      "label": "Command",
+      "file_type": "code",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L14",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_cli_mod_rs_string",
+      "label": "String",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_cli_mod_rs_option",
+      "label": "Option",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_cli_mod_cli_parse_args",
+      "label": ".parse_args()",
+      "file_type": "code",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L66",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_cli_mod_rs_self",
+      "label": "Self",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_cli_mod_cli_run",
+      "label": ".run()",
+      "file_type": "code",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L70",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_cli_mod_rs_result",
+      "label": "Result",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_build",
+      "label": "build.rs",
+      "file_type": "code",
+      "source_file": "src/commands/build.rs",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_build_run",
+      "label": "run()",
+      "file_type": "code",
+      "source_file": "src/commands/build.rs",
+      "source_location": "L6",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_build_rs_option",
+      "label": "Option",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_build_rs_result",
+      "label": "Result",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_clean",
+      "label": "clean.rs",
+      "file_type": "code",
+      "source_file": "src/commands/clean.rs",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_clean_run",
+      "label": "run()",
+      "file_type": "code",
+      "source_file": "src/commands/clean.rs",
+      "source_location": "L6",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_clean_rs_result",
+      "label": "Result",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_debug",
+      "label": "debug.rs",
+      "file_type": "code",
+      "source_file": "src/commands/debug.rs",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_debug_run",
+      "label": "run()",
+      "file_type": "code",
+      "source_file": "src/commands/debug.rs",
+      "source_location": "L7",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_debug_rs_option",
+      "label": "Option",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_debug_rs_result",
+      "label": "Result",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_disasm",
+      "label": "disasm.rs",
+      "file_type": "code",
+      "source_file": "src/commands/disasm.rs",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_disasm_run",
+      "label": "run()",
+      "file_type": "code",
+      "source_file": "src/commands/disasm.rs",
+      "source_location": "L10",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_disasm_rs_option",
+      "label": "Option",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_disasm_rs_result",
+      "label": "Result",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_mod",
+      "label": "mod.rs",
+      "file_type": "code",
+      "source_file": "src/commands/mod.rs",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_new",
+      "label": "new.rs",
+      "file_type": "code",
+      "source_file": "src/commands/new.rs",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_new_run",
+      "label": "run()",
+      "file_type": "code",
+      "source_file": "src/commands/new.rs",
+      "source_location": "L9",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_new_rs_result",
+      "label": "Result",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_run",
+      "label": "run.rs",
+      "file_type": "code",
+      "source_file": "src/commands/run.rs",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_run_run",
+      "label": "run()",
+      "file_type": "code",
+      "source_file": "src/commands/run.rs",
+      "source_location": "L7",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_run_rs_option",
+      "label": "Option",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_run_rs_result",
+      "label": "Result",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_sections",
+      "label": "sections.rs",
+      "file_type": "code",
+      "source_file": "src/commands/sections.rs",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_sections_run",
+      "label": "run()",
+      "file_type": "code",
+      "source_file": "src/commands/sections.rs",
+      "source_location": "L10",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_sections_rs_option",
+      "label": "Option",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_sections_rs_result",
+      "label": "Result",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_symbols",
+      "label": "symbols.rs",
+      "file_type": "code",
+      "source_file": "src/commands/symbols.rs",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_symbols_run",
+      "label": "run()",
+      "file_type": "code",
+      "source_file": "src/commands/symbols.rs",
+      "source_location": "L10",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_symbols_rs_option",
+      "label": "Option",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_symbols_rs_result",
+      "label": "Result",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_watch",
+      "label": "watch.rs",
+      "file_type": "code",
+      "source_file": "src/commands/watch.rs",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_watch_run",
+      "label": "run()",
+      "file_type": "code",
+      "source_file": "src/commands/watch.rs",
+      "source_location": "L11",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_commands_watch_rs_result",
+      "label": "Result",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_compiler_gcc",
+      "label": "gcc.rs",
+      "file_type": "code",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_compiler_gcc_run",
+      "label": "run()",
+      "file_type": "code",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L11",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_compiler_gcc_rs_option",
+      "label": "Option",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_compiler_gcc_rs_result",
+      "label": "Result",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_compiler_gcc_obj_path",
+      "label": "obj_path()",
+      "file_type": "code",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L67",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_compiler_gcc_rs_path",
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_compiler_gcc_rs_pathbuf",
+      "label": "PathBuf",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_compiler_gcc_compile_asm",
+      "label": "compile_asm()",
+      "file_type": "code",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L73",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_compiler_gcc_compile_c",
+      "label": "compile_c()",
+      "file_type": "code",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L102",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_compiler_gcc_link",
+      "label": "link()",
+      "file_type": "code",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L127",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_compiler_gcc_run_command",
+      "label": "run_command()",
+      "file_type": "code",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L173",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_compiler_gcc_print_command",
+      "label": "print_command()",
+      "file_type": "code",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L204",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_compiler_gcc_eprint_command",
+      "label": "eprint_command()",
+      "file_type": "code",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L220",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_compiler_mod",
+      "label": "mod.rs",
+      "file_type": "code",
+      "source_file": "src/compiler/mod.rs",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod",
+      "label": "mod.rs",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_config",
+      "label": "Config",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L7",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_project",
+      "label": "Project",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L28",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_rs_string",
+      "label": "String",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_target",
+      "label": "Target",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L33",
+      "_origin": "ast"
+    },
+    {
+      "id": "default",
+      "label": "Default",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_target_default",
+      "label": ".default()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L41",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_rs_self",
+      "label": "Self",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_sources",
+      "label": "Sources",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L50",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_rs_option",
+      "label": "Option",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "vec",
+      "label": "Vec",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_toolchain",
+      "label": "Toolchain",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L57",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_toolchain_default",
+      "label": ".default()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L71",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_build",
+      "label": "Build",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L83",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_build_default",
+      "label": ".default()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L97",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_link",
+      "label": "Link",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L109",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_linkdriver",
+      "label": "LinkDriver",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L121",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_default_link_driver",
+      "label": "default_link_driver()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L127",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_compile",
+      "label": "Compile",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L132",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_output",
+      "label": "Output",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L138",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_output_default",
+      "label": ".default()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L145",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_qemu",
+      "label": "Qemu",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L154",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_qemu_default",
+      "label": ".default()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L164",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_qemumode",
+      "label": "QemuMode",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L175",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_default_arch",
+      "label": "default_arch()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L181",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_default_abi",
+      "label": "default_abi()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L184",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_default_cc",
+      "label": "default_cc()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L187",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_default_objdump",
+      "label": "default_objdump()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L190",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_default_nm",
+      "label": "default_nm()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L193",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_default_readelf",
+      "label": "default_readelf()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L196",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_default_gdb",
+      "label": "default_gdb()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L199",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_default_qemu_binary",
+      "label": "default_qemu_binary()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L202",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_default_qemu_mode",
+      "label": "default_qemu_mode()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L205",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_default_build_dir",
+      "label": "default_build_dir()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L208",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_default_opt_level",
+      "label": "default_opt_level()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L211",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_config_load",
+      "label": ".load()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L216",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_rs_result",
+      "label": "Result",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_config_find_config",
+      "label": ".find_config()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L225",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_rs_pathbuf",
+      "label": "PathBuf",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_config_project_root",
+      "label": ".project_root()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L243",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_config_source_dir",
+      "label": ".source_dir()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L248",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_config_build_dir",
+      "label": ".build_dir()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L252",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_config_elf_path",
+      "label": ".elf_path()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L256",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_config_resolve_target",
+      "label": ".resolve_target()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L264",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_config_find_source",
+      "label": ".find_source()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L268",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_config_mod_config_all_sources",
+      "label": ".all_sources()",
+      "file_type": "code",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L294",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_gdb_debug",
+      "label": "debug.rs",
+      "file_type": "code",
+      "source_file": "src/gdb/debug.rs",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_gdb_debug_run",
+      "label": "run()",
+      "file_type": "code",
+      "source_file": "src/gdb/debug.rs",
+      "source_location": "L8",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_gdb_debug_rs_path",
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_gdb_debug_rs_result",
+      "label": "Result",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_gdb_mod",
+      "label": "mod.rs",
+      "file_type": "code",
+      "source_file": "src/gdb/mod.rs",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_main",
+      "label": "main.rs",
+      "file_type": "code",
+      "source_file": "src/main.rs",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_main_main",
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "src/main.rs",
+      "source_location": "L12",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_main_rs_result",
+      "label": "Result",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_qemu_mod",
+      "label": "mod.rs",
+      "file_type": "code",
+      "source_file": "src/qemu/mod.rs",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_qemu_run",
+      "label": "run.rs",
+      "file_type": "code",
+      "source_file": "src/qemu/run.rs",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_qemu_run_run",
+      "label": "run()",
+      "file_type": "code",
+      "source_file": "src/qemu/run.rs",
+      "source_location": "L8",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_qemu_run_rs_path",
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_qemu_run_rs_result",
+      "label": "Result",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_templates_mod",
+      "label": "mod.rs",
+      "file_type": "code",
+      "source_file": "src/templates/mod.rs",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_templates_mod_rv_toml",
+      "label": "rv_toml()",
+      "file_type": "code",
+      "source_file": "src/templates/mod.rs",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_templates_mod_rs_string",
+      "label": "String",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_templates_mod_starter_asm",
+      "label": "starter_asm()",
+      "file_type": "code",
+      "source_file": "src/templates/mod.rs",
+      "source_location": "L49",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_templates_mod_gitignore",
+      "label": "gitignore()",
+      "file_type": "code",
+      "source_file": "src/templates/mod.rs",
+      "source_location": "L77",
+      "_origin": "ast"
+    }
+  ],
+  "edges": [
+    {
+      "source": "claude_scripts_post_commit_changelog",
+      "target": "claude_scripts_post_commit_changelog_sh__entry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/scripts/post-commit-changelog.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_scripts_post_edit_hook",
+      "target": "claude_scripts_post_edit_hook_sh__entry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/scripts/post-edit-hook.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_scripts_post_edit_hook",
+      "target": "claude_scripts_post_edit_hook_fail",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/scripts/post-edit-hook.sh",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_scripts_post_edit_hook",
+      "target": "claude_scripts_post_edit_hook_describe_changes",
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/scripts/post-edit-hook.sh",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_scripts_post_edit_hook_sh__entry",
+      "target": "claude_scripts_post_edit_hook_fail",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": ".claude/scripts/post-edit-hook.sh",
+      "source_location": "L22",
+      "weight": 1.0,
+      "context": "call"
+    },
+    {
+      "source": "src_cli_mod",
+      "target": "src_cli_mod_rs_result",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_cli_mod",
+      "target": "clap",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L2",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_cli_mod",
+      "target": "commands",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L4",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_cli_mod",
+      "target": "src_cli_mod_cli",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "src_cli_mod_cli",
+      "target": "src_cli_mod_command",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L10",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_cli_mod",
+      "target": "src_cli_mod_command",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "src_cli_mod_command",
+      "target": "src_cli_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L18",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_cli_mod_command",
+      "target": "src_cli_mod_rs_option",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_cli_mod_command",
+      "target": "src_cli_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "generic_arg"
+    },
+    {
+      "source": "src_cli_mod_command",
+      "target": "src_cli_mod_rs_option",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L31",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_cli_mod_command",
+      "target": "src_cli_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L31",
+      "weight": 1.0,
+      "context": "generic_arg"
+    },
+    {
+      "source": "src_cli_mod_command",
+      "target": "src_cli_mod_rs_option",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L39",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_cli_mod_command",
+      "target": "src_cli_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L39",
+      "weight": 1.0,
+      "context": "generic_arg"
+    },
+    {
+      "source": "src_cli_mod_command",
+      "target": "src_cli_mod_rs_option",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L47",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_cli_mod_command",
+      "target": "src_cli_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L47",
+      "weight": 1.0,
+      "context": "generic_arg"
+    },
+    {
+      "source": "src_cli_mod_command",
+      "target": "src_cli_mod_rs_option",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L52",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_cli_mod_command",
+      "target": "src_cli_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L52",
+      "weight": 1.0,
+      "context": "generic_arg"
+    },
+    {
+      "source": "src_cli_mod_command",
+      "target": "src_cli_mod_rs_option",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L57",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_cli_mod_command",
+      "target": "src_cli_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L57",
+      "weight": 1.0,
+      "context": "generic_arg"
+    },
+    {
+      "source": "src_cli_mod_cli",
+      "target": "src_cli_mod_cli_parse_args",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "src_cli_mod_cli_parse_args",
+      "target": "src_cli_mod_rs_self",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L66",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_cli_mod_cli",
+      "target": "src_cli_mod_cli_run",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "src_cli_mod_cli_run",
+      "target": "src_cli_mod_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cli/mod.rs",
+      "source_location": "L70",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_commands_build",
+      "target": "src_commands_build_rs_result",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/build.rs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_build",
+      "target": "compiler",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/build.rs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_build",
+      "target": "config",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/build.rs",
+      "source_location": "L4",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_build",
+      "target": "src_commands_build_run",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/build.rs",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "src_commands_build_run",
+      "target": "src_commands_build_rs_option",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/build.rs",
+      "source_location": "L6",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_commands_build_run",
+      "target": "src_commands_build_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/build.rs",
+      "source_location": "L6",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_commands_clean",
+      "target": "src_commands_clean_rs_result",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/clean.rs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_clean",
+      "target": "colorize",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/clean.rs",
+      "source_location": "L2",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_clean",
+      "target": "config",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/clean.rs",
+      "source_location": "L4",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_clean",
+      "target": "src_commands_clean_run",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/clean.rs",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "src_commands_clean_run",
+      "target": "src_commands_clean_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/clean.rs",
+      "source_location": "L6",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_commands_debug",
+      "target": "src_commands_debug_rs_result",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/debug.rs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_debug",
+      "target": "compiler",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/debug.rs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_debug",
+      "target": "config",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/debug.rs",
+      "source_location": "L4",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_debug",
+      "target": "gdb",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/debug.rs",
+      "source_location": "L5",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_debug",
+      "target": "src_commands_debug_run",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/debug.rs",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "src_commands_debug_run",
+      "target": "src_commands_debug_rs_option",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/debug.rs",
+      "source_location": "L7",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_commands_debug_run",
+      "target": "src_commands_debug_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/debug.rs",
+      "source_location": "L7",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_commands_disasm",
+      "target": "write",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/disasm.rs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_disasm",
+      "target": "process",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/disasm.rs",
+      "source_location": "L2",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_disasm",
+      "target": "anyhow",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/disasm.rs",
+      "source_location": "L4",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_disasm",
+      "target": "colorize",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/disasm.rs",
+      "source_location": "L5",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_disasm",
+      "target": "compiler",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/disasm.rs",
+      "source_location": "L7",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_disasm",
+      "target": "config",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/disasm.rs",
+      "source_location": "L8",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_disasm",
+      "target": "src_commands_disasm_run",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/disasm.rs",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "src_commands_disasm_run",
+      "target": "src_commands_disasm_rs_option",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/disasm.rs",
+      "source_location": "L10",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_commands_disasm_run",
+      "target": "src_commands_disasm_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/disasm.rs",
+      "source_location": "L10",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_commands_new",
+      "target": "fs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/new.rs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_new",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/new.rs",
+      "source_location": "L2",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_new",
+      "target": "anyhow",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/new.rs",
+      "source_location": "L4",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_new",
+      "target": "colorize",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/new.rs",
+      "source_location": "L5",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_new",
+      "target": "templates",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/new.rs",
+      "source_location": "L7",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_new",
+      "target": "src_commands_new_run",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/new.rs",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "src_commands_new_run",
+      "target": "src_commands_new_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/new.rs",
+      "source_location": "L9",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_commands_run",
+      "target": "src_commands_run_rs_result",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/run.rs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_run",
+      "target": "compiler",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/run.rs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_run",
+      "target": "config",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/run.rs",
+      "source_location": "L4",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_run",
+      "target": "src_config_mod_qemu",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/run.rs",
+      "source_location": "L5",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_run",
+      "target": "src_commands_run_run",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/run.rs",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "src_commands_run_run",
+      "target": "src_commands_run_rs_option",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/run.rs",
+      "source_location": "L7",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_commands_run_run",
+      "target": "src_commands_run_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/run.rs",
+      "source_location": "L7",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_commands_sections",
+      "target": "write",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/sections.rs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_sections",
+      "target": "process",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/sections.rs",
+      "source_location": "L2",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_sections",
+      "target": "anyhow",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/sections.rs",
+      "source_location": "L4",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_sections",
+      "target": "colorize",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/sections.rs",
+      "source_location": "L5",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_sections",
+      "target": "compiler",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/sections.rs",
+      "source_location": "L7",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_sections",
+      "target": "config",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/sections.rs",
+      "source_location": "L8",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_sections",
+      "target": "src_commands_sections_run",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/sections.rs",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "src_commands_sections_run",
+      "target": "src_commands_sections_rs_option",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/sections.rs",
+      "source_location": "L10",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_commands_sections_run",
+      "target": "src_commands_sections_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/sections.rs",
+      "source_location": "L10",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_commands_symbols",
+      "target": "write",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/symbols.rs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_symbols",
+      "target": "process",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/symbols.rs",
+      "source_location": "L2",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_symbols",
+      "target": "anyhow",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/symbols.rs",
+      "source_location": "L4",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_symbols",
+      "target": "colorize",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/symbols.rs",
+      "source_location": "L5",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_symbols",
+      "target": "compiler",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/symbols.rs",
+      "source_location": "L7",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_symbols",
+      "target": "config",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/symbols.rs",
+      "source_location": "L8",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_symbols",
+      "target": "src_commands_symbols_run",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/symbols.rs",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "src_commands_symbols_run",
+      "target": "src_commands_symbols_rs_option",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/symbols.rs",
+      "source_location": "L10",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_commands_symbols_run",
+      "target": "src_commands_symbols_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/symbols.rs",
+      "source_location": "L10",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_commands_watch",
+      "target": "channel",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/watch.rs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_watch",
+      "target": "duration",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/watch.rs",
+      "source_location": "L2",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_watch",
+      "target": "src_commands_watch_rs_result",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/watch.rs",
+      "source_location": "L4",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_watch",
+      "target": "colorize",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/watch.rs",
+      "source_location": "L5",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_watch",
+      "target": "new_debouncer",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/watch.rs",
+      "source_location": "L6",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_watch",
+      "target": "compiler",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/watch.rs",
+      "source_location": "L8",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_watch",
+      "target": "config",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/watch.rs",
+      "source_location": "L9",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_commands_watch",
+      "target": "src_commands_watch_run",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/watch.rs",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "src_commands_watch_run",
+      "target": "src_commands_watch_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/commands/watch.rs",
+      "source_location": "L11",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_compiler_gcc",
+      "target": "write",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_compiler_gcc",
+      "target": "src_compiler_gcc_rs_path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L2",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_compiler_gcc",
+      "target": "process",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_compiler_gcc",
+      "target": "instant",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L4",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_compiler_gcc",
+      "target": "anyhow",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L6",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_compiler_gcc",
+      "target": "colorize",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L7",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_compiler_gcc",
+      "target": "src_config_mod_config",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L9",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_compiler_gcc",
+      "target": "src_compiler_gcc_run",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "src_compiler_gcc_run",
+      "target": "src_config_mod_config",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L11",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_compiler_gcc_run",
+      "target": "src_compiler_gcc_rs_option",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L11",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_compiler_gcc_run",
+      "target": "src_compiler_gcc_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L11",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_compiler_gcc",
+      "target": "src_compiler_gcc_obj_path",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "src_compiler_gcc_obj_path",
+      "target": "src_compiler_gcc_rs_path",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L67",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_compiler_gcc_obj_path",
+      "target": "src_compiler_gcc_rs_path",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L67",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_compiler_gcc_obj_path",
+      "target": "src_compiler_gcc_rs_pathbuf",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L67",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_compiler_gcc",
+      "target": "src_compiler_gcc_compile_asm",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "src_compiler_gcc_compile_asm",
+      "target": "src_config_mod_config",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L73",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_compiler_gcc_compile_asm",
+      "target": "src_compiler_gcc_rs_path",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L73",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_compiler_gcc_compile_asm",
+      "target": "src_compiler_gcc_rs_path",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L73",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_compiler_gcc_compile_asm",
+      "target": "src_compiler_gcc_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L73",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_compiler_gcc",
+      "target": "src_compiler_gcc_compile_c",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "src_compiler_gcc_compile_c",
+      "target": "src_config_mod_config",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L102",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_compiler_gcc_compile_c",
+      "target": "src_compiler_gcc_rs_path",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L102",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_compiler_gcc_compile_c",
+      "target": "src_compiler_gcc_rs_path",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L102",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_compiler_gcc_compile_c",
+      "target": "src_compiler_gcc_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L102",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_compiler_gcc",
+      "target": "src_compiler_gcc_link",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L127",
+      "weight": 1.0
+    },
+    {
+      "source": "src_compiler_gcc_link",
+      "target": "src_config_mod_config",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L127",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_compiler_gcc_link",
+      "target": "src_compiler_gcc_rs_pathbuf",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L127",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_compiler_gcc_link",
+      "target": "src_compiler_gcc_rs_path",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L127",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_compiler_gcc_link",
+      "target": "src_compiler_gcc_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L127",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_compiler_gcc",
+      "target": "src_compiler_gcc_run_command",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L173",
+      "weight": 1.0
+    },
+    {
+      "source": "src_compiler_gcc_run_command",
+      "target": "src_cli_mod_command",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L173",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_compiler_gcc_run_command",
+      "target": "src_compiler_gcc_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L173",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_compiler_gcc",
+      "target": "src_compiler_gcc_print_command",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L204",
+      "weight": 1.0
+    },
+    {
+      "source": "src_compiler_gcc_print_command",
+      "target": "src_cli_mod_command",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L204",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_compiler_gcc",
+      "target": "src_compiler_gcc_eprint_command",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L220",
+      "weight": 1.0
+    },
+    {
+      "source": "src_compiler_gcc_eprint_command",
+      "target": "src_cli_mod_command",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L220",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_compiler_gcc_run",
+      "target": "src_compiler_gcc_obj_path",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "src_compiler_gcc_run",
+      "target": "src_compiler_gcc_compile_c",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "src_compiler_gcc_run",
+      "target": "src_compiler_gcc_compile_asm",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "src_compiler_gcc_run",
+      "target": "src_compiler_gcc_link",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "src_compiler_gcc_compile_asm",
+      "target": "src_compiler_gcc_run_command",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L94",
+      "weight": 1.0
+    },
+    {
+      "source": "src_compiler_gcc_compile_c",
+      "target": "src_compiler_gcc_run_command",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L124",
+      "weight": 1.0
+    },
+    {
+      "source": "src_compiler_gcc_link",
+      "target": "src_compiler_gcc_run_command",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L170",
+      "weight": 1.0
+    },
+    {
+      "source": "src_compiler_gcc_run_command",
+      "target": "src_compiler_gcc_print_command",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L175",
+      "weight": 1.0
+    },
+    {
+      "source": "src_compiler_gcc_run_command",
+      "target": "src_compiler_gcc_eprint_command",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/compiler/gcc.rs",
+      "source_location": "L193",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod",
+      "target": "src_config_mod_rs_pathbuf",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_config_mod",
+      "target": "anyhow",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_config_mod",
+      "target": "deserialize",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L4",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_config_mod",
+      "target": "src_config_mod_config",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_config",
+      "target": "src_config_mod_project",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L8",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_config",
+      "target": "src_config_mod_target",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L10",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_config",
+      "target": "src_config_mod_sources",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L12",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_config",
+      "target": "src_config_mod_toolchain",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L14",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_config",
+      "target": "src_config_mod_build",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_config",
+      "target": "src_config_mod_link",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L18",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_config",
+      "target": "src_config_mod_compile",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L20",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_config",
+      "target": "src_config_mod_output",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L22",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_config",
+      "target": "src_config_mod_qemu",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L24",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod",
+      "target": "src_config_mod_project",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_project",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L29",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod",
+      "target": "src_config_mod_target",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_target",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L35",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_target",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L37",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_target",
+      "target": "default",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_target",
+      "target": "src_config_mod_target_default",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_target_default",
+      "target": "src_config_mod_rs_self",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L41",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod",
+      "target": "src_config_mod_sources",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_sources",
+      "target": "src_config_mod_rs_option",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L51",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_sources",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L51",
+      "weight": 1.0,
+      "context": "generic_arg"
+    },
+    {
+      "source": "src_config_mod_sources",
+      "target": "vec",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L53",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_sources",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L53",
+      "weight": 1.0,
+      "context": "generic_arg"
+    },
+    {
+      "source": "src_config_mod",
+      "target": "src_config_mod_toolchain",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_toolchain",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L59",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_toolchain",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L61",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_toolchain",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L63",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_toolchain",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L65",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_toolchain",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L67",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_toolchain",
+      "target": "default",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_toolchain",
+      "target": "src_config_mod_toolchain_default",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_toolchain_default",
+      "target": "src_config_mod_rs_self",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L71",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod",
+      "target": "src_config_mod_build",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_build",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L85",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_build",
+      "target": "vec",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L89",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_build",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L89",
+      "weight": 1.0,
+      "context": "generic_arg"
+    },
+    {
+      "source": "src_config_mod_build",
+      "target": "vec",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L91",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_build",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L91",
+      "weight": 1.0,
+      "context": "generic_arg"
+    },
+    {
+      "source": "src_config_mod_build",
+      "target": "vec",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L93",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_build",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L93",
+      "weight": 1.0,
+      "context": "generic_arg"
+    },
+    {
+      "source": "src_config_mod_build",
+      "target": "default",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_build",
+      "target": "src_config_mod_build_default",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L97",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_build_default",
+      "target": "src_config_mod_rs_self",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L97",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod",
+      "target": "src_config_mod_link",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_link",
+      "target": "src_config_mod_linkdriver",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L111",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_link",
+      "target": "vec",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L113",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_link",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L113",
+      "weight": 1.0,
+      "context": "generic_arg"
+    },
+    {
+      "source": "src_config_mod_link",
+      "target": "vec",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L115",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_link",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L115",
+      "weight": 1.0,
+      "context": "generic_arg"
+    },
+    {
+      "source": "src_config_mod_link",
+      "target": "src_config_mod_rs_option",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L116",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_link",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L116",
+      "weight": 1.0,
+      "context": "generic_arg"
+    },
+    {
+      "source": "src_config_mod",
+      "target": "src_config_mod_linkdriver",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L121",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod",
+      "target": "src_config_mod_default_link_driver",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L127",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_default_link_driver",
+      "target": "src_config_mod_linkdriver",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L127",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod",
+      "target": "src_config_mod_compile",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L132",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod",
+      "target": "src_config_mod_output",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L138",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_output",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L140",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_output",
+      "target": "src_config_mod_rs_option",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L141",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_output",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L141",
+      "weight": 1.0,
+      "context": "generic_arg"
+    },
+    {
+      "source": "src_config_mod_output",
+      "target": "default",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L144",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_output",
+      "target": "src_config_mod_output_default",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L145",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_output_default",
+      "target": "src_config_mod_rs_self",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L145",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod",
+      "target": "src_config_mod_qemu",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L154",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_qemu",
+      "target": "src_config_mod_qemumode",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L156",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_qemu",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L158",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_qemu",
+      "target": "vec",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L160",
+      "weight": 1.0,
+      "context": "field"
+    },
+    {
+      "source": "src_config_mod_qemu",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L160",
+      "weight": 1.0,
+      "context": "generic_arg"
+    },
+    {
+      "source": "src_config_mod_qemu",
+      "target": "default",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L163",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_qemu",
+      "target": "src_config_mod_qemu_default",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L164",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_qemu_default",
+      "target": "src_config_mod_rs_self",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L164",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod",
+      "target": "src_config_mod_qemumode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L175",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod",
+      "target": "src_config_mod_default_arch",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L181",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_default_arch",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L181",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod",
+      "target": "src_config_mod_default_abi",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L184",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_default_abi",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L184",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod",
+      "target": "src_config_mod_default_cc",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L187",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_default_cc",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L187",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod",
+      "target": "src_config_mod_default_objdump",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L190",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_default_objdump",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L190",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod",
+      "target": "src_config_mod_default_nm",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L193",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_default_nm",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L193",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod",
+      "target": "src_config_mod_default_readelf",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L196",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_default_readelf",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L196",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod",
+      "target": "src_config_mod_default_gdb",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L199",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_default_gdb",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L199",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod",
+      "target": "src_config_mod_default_qemu_binary",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L202",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_default_qemu_binary",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L202",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod",
+      "target": "src_config_mod_default_qemu_mode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L205",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_default_qemu_mode",
+      "target": "src_config_mod_qemumode",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L205",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod",
+      "target": "src_config_mod_default_build_dir",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L208",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_default_build_dir",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L208",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod",
+      "target": "src_config_mod_default_opt_level",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L211",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_default_opt_level",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L211",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod_config",
+      "target": "src_config_mod_config_load",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L216",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_config_load",
+      "target": "src_config_mod_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L216",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod_config_load",
+      "target": "src_config_mod_rs_self",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L216",
+      "weight": 1.0,
+      "context": "generic_arg"
+    },
+    {
+      "source": "src_config_mod_config",
+      "target": "src_config_mod_config_find_config",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L225",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_config_find_config",
+      "target": "src_config_mod_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L225",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod_config_find_config",
+      "target": "src_config_mod_rs_pathbuf",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L225",
+      "weight": 1.0,
+      "context": "generic_arg"
+    },
+    {
+      "source": "src_config_mod_config",
+      "target": "src_config_mod_config_project_root",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L243",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_config_project_root",
+      "target": "src_config_mod_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L243",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod_config_project_root",
+      "target": "src_config_mod_rs_pathbuf",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L243",
+      "weight": 1.0,
+      "context": "generic_arg"
+    },
+    {
+      "source": "src_config_mod_config",
+      "target": "src_config_mod_config_source_dir",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L248",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_config_source_dir",
+      "target": "src_config_mod_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L248",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod_config_source_dir",
+      "target": "src_config_mod_rs_pathbuf",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L248",
+      "weight": 1.0,
+      "context": "generic_arg"
+    },
+    {
+      "source": "src_config_mod_config",
+      "target": "src_config_mod_config_build_dir",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L252",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_config_build_dir",
+      "target": "src_config_mod_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L252",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod_config_build_dir",
+      "target": "src_config_mod_rs_pathbuf",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L252",
+      "weight": 1.0,
+      "context": "generic_arg"
+    },
+    {
+      "source": "src_config_mod_config",
+      "target": "src_config_mod_config_elf_path",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L256",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_config_elf_path",
+      "target": "src_config_mod_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L256",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod_config_elf_path",
+      "target": "src_config_mod_rs_pathbuf",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L256",
+      "weight": 1.0,
+      "context": "generic_arg"
+    },
+    {
+      "source": "src_config_mod_config",
+      "target": "src_config_mod_config_resolve_target",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L264",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_config_resolve_target",
+      "target": "src_config_mod_rs_option",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L264",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_config_mod_config_resolve_target",
+      "target": "src_config_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L264",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod_config",
+      "target": "src_config_mod_config_find_source",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L268",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_config_find_source",
+      "target": "src_config_mod_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L268",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod_config_find_source",
+      "target": "src_config_mod_rs_pathbuf",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L268",
+      "weight": 1.0,
+      "context": "generic_arg"
+    },
+    {
+      "source": "src_config_mod_config",
+      "target": "src_config_mod_config_all_sources",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L294",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_config_all_sources",
+      "target": "src_config_mod_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L294",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_config_mod_config_all_sources",
+      "target": "vec",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L294",
+      "weight": 1.0,
+      "context": "generic_arg"
+    },
+    {
+      "source": "src_config_mod_config_all_sources",
+      "target": "src_config_mod_rs_pathbuf",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L294",
+      "weight": 1.0,
+      "context": "generic_arg"
+    },
+    {
+      "source": "src_config_mod_target_default",
+      "target": "src_config_mod_default_arch",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_target_default",
+      "target": "src_config_mod_default_abi",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_toolchain_default",
+      "target": "src_config_mod_default_cc",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_toolchain_default",
+      "target": "src_config_mod_default_objdump",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_toolchain_default",
+      "target": "src_config_mod_default_nm",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_toolchain_default",
+      "target": "src_config_mod_default_readelf",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_toolchain_default",
+      "target": "src_config_mod_default_gdb",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L77",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_build_default",
+      "target": "src_config_mod_default_opt_level",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L99",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_output_default",
+      "target": "src_config_mod_default_build_dir",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L147",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_qemu_default",
+      "target": "src_config_mod_default_qemu_mode",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L166",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_qemu_default",
+      "target": "src_config_mod_default_qemu_binary",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L167",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_config_load",
+      "target": "src_config_mod_config_find_config",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L217",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_config_project_root",
+      "target": "src_config_mod_config_find_config",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L244",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_config_source_dir",
+      "target": "src_config_mod_config_project_root",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L249",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_config_build_dir",
+      "target": "src_config_mod_config_project_root",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L253",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_config_elf_path",
+      "target": "src_config_mod_config_build_dir",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L257",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_config_find_source",
+      "target": "src_config_mod_config_source_dir",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L269",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_mod_config_all_sources",
+      "target": "src_config_mod_config_source_dir",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/mod.rs",
+      "source_location": "L295",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gdb_debug",
+      "target": "process",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/gdb/debug.rs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_gdb_debug",
+      "target": "anyhow",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/gdb/debug.rs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_gdb_debug",
+      "target": "colorize",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/gdb/debug.rs",
+      "source_location": "L4",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_gdb_debug",
+      "target": "src_config_mod_config",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/gdb/debug.rs",
+      "source_location": "L6",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_gdb_debug",
+      "target": "src_gdb_debug_run",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/gdb/debug.rs",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gdb_debug_run",
+      "target": "src_config_mod_config",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/gdb/debug.rs",
+      "source_location": "L8",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_gdb_debug_run",
+      "target": "src_gdb_debug_rs_path",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/gdb/debug.rs",
+      "source_location": "L8",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_gdb_debug_run",
+      "target": "src_gdb_debug_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/gdb/debug.rs",
+      "source_location": "L8",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_main",
+      "target": "src_main_rs_result",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L9",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_main",
+      "target": "cli",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L10",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_main",
+      "target": "src_main_main",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "src_main_main",
+      "target": "src_main_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.rs",
+      "source_location": "L12",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_qemu_run",
+      "target": "process",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/qemu/run.rs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_qemu_run",
+      "target": "anyhow",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/qemu/run.rs",
+      "source_location": "L3",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_qemu_run",
+      "target": "colorize",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/qemu/run.rs",
+      "source_location": "L4",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_qemu_run",
+      "target": "src_config_mod_config",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/qemu/run.rs",
+      "source_location": "L6",
+      "weight": 1.0,
+      "context": "import"
+    },
+    {
+      "source": "src_qemu_run",
+      "target": "src_qemu_run_run",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/qemu/run.rs",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "src_qemu_run_run",
+      "target": "src_config_mod_config",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/qemu/run.rs",
+      "source_location": "L8",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_qemu_run_run",
+      "target": "src_qemu_run_rs_path",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/qemu/run.rs",
+      "source_location": "L8",
+      "weight": 1.0,
+      "context": "parameter_type"
+    },
+    {
+      "source": "src_qemu_run_run",
+      "target": "src_qemu_run_rs_result",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/qemu/run.rs",
+      "source_location": "L8",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_templates_mod",
+      "target": "src_templates_mod_rv_toml",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/templates/mod.rs",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_templates_mod_rv_toml",
+      "target": "src_templates_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/templates/mod.rs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_templates_mod",
+      "target": "src_templates_mod_starter_asm",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/templates/mod.rs",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "src_templates_mod_starter_asm",
+      "target": "src_templates_mod_rs_string",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/templates/mod.rs",
+      "source_location": "L49",
+      "weight": 1.0,
+      "context": "return_type"
+    },
+    {
+      "source": "src_templates_mod",
+      "target": "src_templates_mod_gitignore",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/templates/mod.rs",
+      "source_location": "L77",
+      "weight": 1.0
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

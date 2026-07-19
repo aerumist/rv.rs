@@ -14,3 +14,7 @@
 - Adjusted build command to compile both assembly and C source files.
 - Enhanced configuration structure to manage toolchain and build settings.
 - Improved error handling and output for compilation and linking processes.
+
+### ⚙️ Miscellaneous Tasks
+
+- Update 44 files across 7 directories
