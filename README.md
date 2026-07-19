@@ -1,23 +1,72 @@
-# rv
-
-**A Cargo-like CLI for RISC-V assembly and C development.**
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/header/gradient.svg?title=rv&subtitle=A%20Cargo-like%20CLI%20for%20RISC-V%20assembly%20and%20C%20development&mode=dark&theme=violet&logo=riscv&size=lg">
+    <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/header/gradient.svg?title=rv&subtitle=A%20Cargo-like%20CLI%20for%20RISC-V%20assembly%20and%20C%20development&mode=light&theme=violet&logo=riscv&size=lg">
+    <img src="https://shieldcn.dev/header/gradient.svg?title=rv&subtitle=A%20Cargo-like%20CLI%20for%20RISC-V%20assembly%20and%20C%20development&mode=dark&theme=violet&logo=riscv&size=lg" alt="rv — A Cargo-like CLI for RISC-V assembly and C development" width="100%">
+  </picture>
+</p>
 
 <p align="center">
-  <a href="LICENSE"><img src="https://shieldcn.dev/github/license/aerumist/rv.svg" alt="License: MIT"></a>
-  <a href="https://www.rust-lang.org/"><img src="https://shieldcn.dev/badge/rust-2024-orange.svg?logo=rust" alt="Rust 2024"></a>
-  <img src="https://shieldcn.dev/badge/C-blue.svg?logo=c" alt="C">
-  <img src="https://shieldcn.dev/badge/RISC--V-black.svg?logo=riscv" alt="RISC-V">
-  <a href="https://www.qemu.org/"><img src="https://shieldcn.dev/badge/QEMU-orange.svg?logo=qemu" alt="QEMU"></a>
-  <a href="https://www.sourceware.org/gdb/"><img src="https://shieldcn.dev/badge/GDB-purple.svg?logo=gnu" alt="GDB"></a>
+  <a href="LICENSE">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/license/aerumist/rv.svg?variant=outline&mode=dark&theme=violet">
+      <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/github/license/aerumist/rv.svg?variant=outline&mode=light&theme=violet">
+      <img src="https://shieldcn.dev/github/license/aerumist/rv.svg?variant=outline&theme=violet" alt="License: MIT">
+    </picture>
+  </a>
+  <a href="https://www.rust-lang.org/">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/rust-2024-orange.svg?logo=rust&variant=outline&mode=dark&theme=violet">
+      <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/badge/rust-2024-orange.svg?logo=rust&variant=outline&mode=light&theme=violet">
+      <img src="https://shieldcn.dev/badge/rust-2024-orange.svg?logo=rust&variant=outline&theme=violet" alt="Rust 2024">
+    </picture>
+  </a>
+  <a href="https://github.com/aerumist/rv/commits">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/last-commit/aerumist/rv.svg?variant=outline&mode=dark&theme=violet">
+      <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/github/last-commit/aerumist/rv.svg?variant=outline&mode=light&theme=violet">
+      <img src="https://shieldcn.dev/github/last-commit/aerumist/rv.svg?variant=outline&theme=violet" alt="Last commit">
+    </picture>
+  </a>
+</p>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/language-Rust-orange.svg?logo=rust&split=true&mode=dark&theme=violet">
+    <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/badge/language-Rust-orange.svg?logo=rust&split=true&mode=light&theme=violet">
+    <img src="https://shieldcn.dev/badge/language-Rust-orange.svg?logo=rust&split=true&theme=violet" alt="Rust">
+  </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/language-C-blue.svg?logo=c&split=true&mode=dark&theme=violet">
+    <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/badge/language-C-blue.svg?logo=c&split=true&mode=light&theme=violet">
+    <img src="https://shieldcn.dev/badge/language-C-blue.svg?logo=c&split=true&theme=violet" alt="C">
+  </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/arch-RISC--V-black.svg?logo=riscv&split=true&mode=dark&theme=violet">
+    <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/badge/arch-RISC--V-black.svg?logo=riscv&split=true&mode=light&theme=violet">
+    <img src="https://shieldcn.dev/badge/arch-RISC--V-black.svg?logo=riscv&split=true&theme=violet" alt="RISC-V">
+  </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/tool-QEMU-orange.svg?logo=qemu&split=true&mode=dark&theme=violet">
+    <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/badge/tool-QEMU-orange.svg?logo=qemu&split=true&mode=light&theme=violet">
+    <img src="https://shieldcn.dev/badge/tool-QEMU-orange.svg?logo=qemu&split=true&theme=violet" alt="QEMU">
+  </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/tool-GDB-purple.svg?logo=gnu&split=true&mode=dark&theme=violet">
+    <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/badge/tool-GDB-purple.svg?logo=gnu&split=true&mode=light&theme=violet">
+    <img src="https://shieldcn.dev/badge/tool-GDB-purple.svg?logo=gnu&split=true&theme=violet" alt="GDB">
+  </picture>
 </p>
 
 ---
 
 ## Why rv?
 
-Writing RISC-V assembly means juggling cross-compilers, linker scripts, QEMU flags, and GDB configurations. `rv` wraps all of that behind a single command-line tool with a familiar Cargo-like interface.
+`rv` lets you write and run RISC-V assembly programs using QEMU without dealing with cross-compiler flags, linker scripts, or QEMU configuration. It wraps the entire toolchain behind a single CLI with a familiar Cargo-like interface.
 
-One config file. One command to build. One command to run.
+One config file. One command to build. One command to run on QEMU.
+
+Support for bare-metal targets, ESP32-C6 boards, mixed C projects, and more is planned or in progress.
 
 ## Features
 
@@ -236,6 +285,16 @@ See [ROADMAP.md](ROADMAP.md) for the full plan. Highlights:
 ## Contributing
 
 Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+## Star History
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/chart/github/stars/aerumist/rv.svg?mode=dark&theme=violet">
+    <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/chart/github/stars/aerumist/rv.svg?mode=light&theme=violet">
+    <img src="https://shieldcn.dev/chart/github/stars/aerumist/rv.svg?mode=dark&theme=violet" alt="Star History" width="100%">
+  </picture>
+</p>
 
 ## License
 
