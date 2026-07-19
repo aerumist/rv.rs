@@ -79,7 +79,11 @@ Address all warnings. No `#[allow(...)]` without justification.
 
 ## Commits
 
-This project uses [Conventional Commits](https://www.conventionalcommits.org/):
+This project uses [Conventional Commits](https://www.conventionalcommits.org/) and enforces them via a `commit-msg` git hook. Set it up after cloning:
+
+```bash
+git config core.hooksPath .githooks
+```
 
 ```
 feat: add verbose flag to build command
