@@ -9,59 +9,59 @@
 <p align="center">
   <a href="LICENSE">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/license/aerumist/rv.svg?variant=outline&mode=dark&theme=violet">
-      <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/github/license/aerumist/rv.svg?variant=outline&mode=light&theme=violet">
-      <img src="https://shieldcn.dev/github/license/aerumist/rv.svg?variant=outline&theme=violet" alt="License: MIT">
+      <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/license/aerumist/rv.rs.svg?variant=ghost&font=fira-code&mode=dark&theme=violet">
+      <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/github/license/aerumist/rv.rs.svg?variant=ghost&font=fira-code&mode=light&theme=violet">
+      <img src="https://shieldcn.dev/github/license/aerumist/rv.rs.svg?variant=ghost&font=fira-code&theme=violet" alt="License: MIT">
     </picture>
   </a>
   <a href="https://www.rust-lang.org/">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/rust-2024-orange.svg?logo=rust&variant=outline&mode=dark&theme=violet">
-      <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/badge/rust-2024-orange.svg?logo=rust&variant=outline&mode=light&theme=violet">
-      <img src="https://shieldcn.dev/badge/rust-2024-orange.svg?logo=rust&variant=outline&theme=violet" alt="Rust 2024">
+      <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/rust-2024-orange.svg?logo=rust&variant=ghost&font=fira-code&mode=dark&theme=violet">
+      <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/badge/rust-2024-orange.svg?logo=rust&variant=ghost&font=fira-code&mode=light&theme=violet">
+      <img src="https://shieldcn.dev/badge/rust-2024-orange.svg?logo=rust&variant=ghost&font=fira-code&theme=violet" alt="Rust 2024">
     </picture>
   </a>
-  <a href="https://github.com/aerumist/rv/actions">
+  <a href="https://github.com/aerumist/rv.rs/actions">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/ci/aerumist/rv.svg?variant=outline&mode=dark&theme=violet">
-      <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/github/ci/aerumist/rv.svg?variant=outline&mode=light&theme=violet">
-      <img src="https://shieldcn.dev/github/ci/aerumist/rv.svg?variant=outline&theme=violet" alt="CI Status">
+      <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/ci/aerumist/rv.rs.svg?variant=ghost&font=fira-code&mode=dark&theme=violet&v=1">
+      <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/github/ci/aerumist/rv.rs.svg?variant=ghost&font=fira-code&mode=light&theme=violet&v=1">
+      <img src="https://shieldcn.dev/github/ci/aerumist/rv.rs.svg?variant=ghost&font=fira-code&theme=violet&v=1" alt="CI Status">
     </picture>
   </a>
-  <a href="https://github.com/aerumist/rv/commits">
+  <a href="https://github.com/aerumist/rv.rs/commits">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/last-commit/aerumist/rv.svg?variant=outline&mode=dark&theme=violet">
-      <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/github/last-commit/aerumist/rv.svg?variant=outline&mode=light&theme=violet">
-      <img src="https://shieldcn.dev/github/last-commit/aerumist/rv.svg?variant=outline&theme=violet" alt="Last commit">
+      <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/last-commit/aerumist/rv.rs.svg?variant=ghost&font=fira-code&mode=dark&theme=violet">
+      <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/github/last-commit/aerumist/rv.rs.svg?variant=ghost&font=fira-code&mode=light&theme=violet">
+      <img src="https://shieldcn.dev/github/last-commit/aerumist/rv.rs.svg?variant=ghost&font=fira-code&theme=violet" alt="Last commit">
     </picture>
   </a>
 </p>
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/language-Rust-orange.svg?logo=rust&split=true&mode=dark&theme=violet">
-    <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/badge/language-Rust-orange.svg?logo=rust&split=true&mode=light&theme=violet">
-    <img src="https://shieldcn.dev/badge/language-Rust-orange.svg?logo=rust&split=true&theme=violet" alt="Rust">
+    <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/language-Rust-orange.svg?logo=rust&split=true&variant=ghost&font=fira-code&mode=dark&theme=violet">
+    <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/badge/language-Rust-orange.svg?logo=rust&split=true&variant=ghost&font=fira-code&mode=light&theme=violet">
+    <img src="https://shieldcn.dev/badge/language-Rust-orange.svg?logo=rust&split=true&variant=ghost&font=fira-code&theme=violet" alt="Rust">
   </picture>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/language-C-blue.svg?logo=c&split=true&mode=dark&theme=violet">
-    <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/badge/language-C-blue.svg?logo=c&split=true&mode=light&theme=violet">
-    <img src="https://shieldcn.dev/badge/language-C-blue.svg?logo=c&split=true&theme=violet" alt="C">
+    <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/language-C-blue.svg?logo=c&split=true&variant=ghost&font=fira-code&mode=dark&theme=violet">
+    <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/badge/language-C-blue.svg?logo=c&split=true&variant=ghost&font=fira-code&mode=light&theme=violet">
+    <img src="https://shieldcn.dev/badge/language-C-blue.svg?logo=c&split=true&variant=ghost&font=fira-code&theme=violet" alt="C">
   </picture>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/arch-RISC--V-black.svg?logo=riscv&split=true&mode=dark&theme=violet">
-    <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/badge/arch-RISC--V-black.svg?logo=riscv&split=true&mode=light&theme=violet">
-    <img src="https://shieldcn.dev/badge/arch-RISC--V-black.svg?logo=riscv&split=true&theme=violet" alt="RISC-V">
+    <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/arch-RISC--V-black.svg?logo=riscv&split=true&variant=ghost&font=fira-code&mode=dark&theme=violet">
+    <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/badge/arch-RISC--V-black.svg?logo=riscv&split=true&variant=ghost&font=fira-code&mode=light&theme=violet">
+    <img src="https://shieldcn.dev/badge/arch-RISC--V-black.svg?logo=riscv&split=true&variant=ghost&font=fira-code&theme=violet" alt="RISC-V">
   </picture>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/tool-QEMU-orange.svg?logo=qemu&split=true&mode=dark&theme=violet">
-    <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/badge/tool-QEMU-orange.svg?logo=qemu&split=true&mode=light&theme=violet">
-    <img src="https://shieldcn.dev/badge/tool-QEMU-orange.svg?logo=qemu&split=true&theme=violet" alt="QEMU">
+    <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/tool-QEMU-orange.svg?logo=qemu&split=true&variant=ghost&font=fira-code&mode=dark&theme=violet">
+    <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/badge/tool-QEMU-orange.svg?logo=qemu&split=true&variant=ghost&font=fira-code&mode=light&theme=violet">
+    <img src="https://shieldcn.dev/badge/tool-QEMU-orange.svg?logo=qemu&split=true&variant=ghost&font=fira-code&theme=violet" alt="QEMU">
   </picture>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/tool-GDB-purple.svg?logo=gnu&split=true&mode=dark&theme=violet">
-    <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/badge/tool-GDB-purple.svg?logo=gnu&split=true&mode=light&theme=violet">
-    <img src="https://shieldcn.dev/badge/tool-GDB-purple.svg?logo=gnu&split=true&theme=violet" alt="GDB">
+    <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/tool-GDB-purple.svg?logo=gnu&split=true&variant=ghost&font=fira-code&mode=dark&theme=violet">
+    <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/badge/tool-GDB-purple.svg?logo=gnu&split=true&variant=ghost&font=fira-code&mode=light&theme=violet">
+    <img src="https://shieldcn.dev/badge/tool-GDB-purple.svg?logo=gnu&split=true&variant=ghost&font=fira-code&theme=violet" alt="GDB">
   </picture>
 </p>
 
@@ -297,9 +297,9 @@ Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/chart/github/stars/aerumist/rv.svg?mode=dark&theme=violet">
-    <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/chart/github/stars/aerumist/rv.svg?mode=light&theme=violet">
-    <img src="https://shieldcn.dev/chart/github/stars/aerumist/rv.svg?mode=dark&theme=violet" alt="Star History" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/chart/github/stars/aerumist/rv.rs.svg?mode=dark&theme=violet">
+    <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/chart/github/stars/aerumist/rv.rs.svg?mode=light&theme=violet">
+    <img src="https://shieldcn.dev/chart/github/stars/aerumist/rv.rs.svg?mode=dark&theme=violet" alt="Star History" width="100%">
   </picture>
 </p>
 
