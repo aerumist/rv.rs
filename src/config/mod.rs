@@ -39,7 +39,10 @@ pub struct Target {
 
 impl Default for Target {
     fn default() -> Self {
-        Self { arch: default_arch(), abi: default_abi() }
+        Self {
+            arch: default_arch(),
+            abi: default_abi(),
+        }
     }
 }
 
@@ -121,18 +124,14 @@ pub enum LinkDriver {
     Cc,
 }
 
-fn default_link_driver() -> LinkDriver { LinkDriver::Ld }
+fn default_link_driver() -> LinkDriver {
+    LinkDriver::Ld
+}
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Default, Deserialize)]
 pub struct Compile {
     #[serde(default)]
     pub generate_debug_symbols: bool,
-}
-
-impl Default for Compile {
-    fn default() -> Self {
-        Self { generate_debug_symbols: false }
-    }
 }
 
 #[derive(Debug, Deserialize)]
@@ -144,7 +143,10 @@ pub struct Output {
 
 impl Default for Output {
     fn default() -> Self {
-        Self { directory: default_build_dir(), binary: None }
+        Self {
+            directory: default_build_dir(),
+            binary: None,
+        }
     }
 }
 
@@ -176,17 +178,39 @@ pub enum QemuMode {
     System,
 }
 
-fn default_arch() -> String { "rv64imac".into() }
-fn default_abi() -> String { "lp64".into() }
-fn default_cc() -> String { "riscv64-elf-gcc".into() }
-fn default_objdump() -> String { "riscv64-elf-objdump".into() }
-fn default_nm() -> String { "riscv64-elf-nm".into() }
-fn default_readelf() -> String { "riscv64-elf-readelf".into() }
-fn default_gdb() -> String { "riscv64-elf-gdb".into() }
-fn default_qemu_binary() -> String { "qemu-riscv64".into() }
-fn default_qemu_mode() -> QemuMode { QemuMode::User }
-fn default_build_dir() -> String { "build".into() }
-fn default_opt_level() -> String { "0".into() }
+fn default_arch() -> String {
+    "rv64imac".into()
+}
+fn default_abi() -> String {
+    "lp64".into()
+}
+fn default_cc() -> String {
+    "riscv64-elf-gcc".into()
+}
+fn default_objdump() -> String {
+    "riscv64-elf-objdump".into()
+}
+fn default_nm() -> String {
+    "riscv64-elf-nm".into()
+}
+fn default_readelf() -> String {
+    "riscv64-elf-readelf".into()
+}
+fn default_gdb() -> String {
+    "riscv64-elf-gdb".into()
+}
+fn default_qemu_binary() -> String {
+    "qemu-riscv64".into()
+}
+fn default_qemu_mode() -> QemuMode {
+    QemuMode::User
+}
+fn default_build_dir() -> String {
+    "build".into()
+}
+fn default_opt_level() -> String {
+    "0".into()
+}
 
 impl Config {
     pub fn load() -> Result<Self> {
@@ -248,7 +272,11 @@ impl Config {
             if path.exists() {
                 return Ok(path);
             }
-            bail!("Source file '{}' (from [sources] main) not found in {}", main, src.display());
+            bail!(
+                "Source file '{}' (from [sources] main) not found in {}",
+                main,
+                src.display()
+            );
         }
         for ext in &["S", "s", "asm"] {
             let path = src.join(format!("{name}.{ext}"));
@@ -274,16 +302,20 @@ impl Config {
             .filter_map(|e| e.ok())
         {
             let path = entry.path();
-            if let Some(ext) = path.extension() {
-                if matches!(ext.to_str(), Some("S" | "s" | "asm")) {
-                    files.push(path.to_path_buf());
-                }
+            if let Some(ext) = path.extension()
+                && matches!(ext.to_str(), Some("S" | "s" | "asm"))
+            {
+                files.push(path.to_path_buf());
             }
         }
         for c_file in &self.sources.c_files {
             let path = src.join(c_file);
             if !path.exists() {
-                bail!("C source '{}' (from [sources] c_files) not found in {}", c_file, src.display());
+                bail!(
+                    "C source '{}' (from [sources] c_files) not found in {}",
+                    c_file,
+                    src.display()
+                );
             }
             files.push(path);
         }

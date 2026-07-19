@@ -26,7 +26,11 @@ pub fn run(config: &Config, name: Option<&str>, verbose: bool) -> Result<()> {
         for c_file in &config.sources.c_files {
             let path = src_dir.join(c_file);
             if !path.exists() {
-                bail!("C source '{}' (from [sources] c_files) not found in {}", c_file, src_dir.display());
+                bail!(
+                    "C source '{}' (from [sources] c_files) not found in {}",
+                    c_file,
+                    src_dir.display()
+                );
             }
             sources.push(path);
         }
@@ -87,7 +91,12 @@ fn compile_asm(config: &Config, src: &Path, obj: &Path, verbose: bool) -> Result
     cmd.arg("-o");
     cmd.arg(obj);
 
-    run_command(&mut cmd, verbose, &config.toolchain.cc, "Assembly compilation")
+    run_command(
+        &mut cmd,
+        verbose,
+        &config.toolchain.cc,
+        "Assembly compilation",
+    )
 }
 
 fn compile_c(config: &Config, src: &Path, obj: &Path, verbose: bool) -> Result<()> {
@@ -194,7 +203,10 @@ fn run_command(cmd: &mut Command, verbose: bool, tool: &str, stage: &str) -> Res
 
 fn print_command(cmd: &Command) {
     let prog = cmd.get_program().to_string_lossy();
-    let args: Vec<_> = cmd.get_args().map(|a| a.to_string_lossy().to_string()).collect();
+    let args: Vec<_> = cmd
+        .get_args()
+        .map(|a| a.to_string_lossy().to_string())
+        .collect();
     eprintln!("\n  {prog} \\");
     for (i, arg) in args.iter().enumerate() {
         if i == args.len() - 1 {
@@ -207,7 +219,10 @@ fn print_command(cmd: &Command) {
 
 fn eprint_command(cmd: &Command) {
     let prog = cmd.get_program().to_string_lossy();
-    let args: Vec<_> = cmd.get_args().map(|a| a.to_string_lossy().to_string()).collect();
+    let args: Vec<_> = cmd
+        .get_args()
+        .map(|a| a.to_string_lossy().to_string())
+        .collect();
     eprintln!("  {prog} \\");
     for (i, arg) in args.iter().enumerate() {
         if i == args.len() - 1 {

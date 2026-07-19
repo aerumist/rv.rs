@@ -17,12 +17,18 @@ pub fn run(name: &str) -> Result<()> {
     fs::create_dir_all(path.join("build"))?;
 
     fs::write(path.join("rv.toml"), templates::rv_toml(name))?;
-    fs::write(path.join("src").join(format!("{name}.S")), templates::starter_asm(name))?;
+    fs::write(
+        path.join("src").join(format!("{name}.S")),
+        templates::starter_asm(name),
+    )?;
     fs::write(path.join(".gitignore"), templates::gitignore())?;
 
     println!("{:>12} project '{name}'", "Created".green().bold());
     println!("     {}", path.join("rv.toml").display());
-    println!("     {}", path.join("src").join(format!("{name}.S")).display());
+    println!(
+        "     {}",
+        path.join("src").join(format!("{name}.S")).display()
+    );
     println!("\n  cd {name} && rv build");
 
     Ok(())

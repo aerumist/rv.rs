@@ -6,17 +6,17 @@ use colored::Colorize;
 use crate::config::{Config, QemuMode};
 
 pub fn run(config: &Config, elf: &std::path::Path) -> Result<()> {
-    println!(
-        "{:>12} {}",
-        "Debugging".green().bold(),
-        elf.display()
-    );
+    println!("{:>12} {}", "Debugging".green().bold(), elf.display());
 
     let mut qemu_args: Vec<String> = config.qemu.args.clone();
 
     match config.qemu.mode {
         QemuMode::User => {
-            qemu_args.extend(["-g".into(), "1234".into(), elf.to_string_lossy().to_string()]);
+            qemu_args.extend([
+                "-g".into(),
+                "1234".into(),
+                elf.to_string_lossy().to_string(),
+            ]);
         }
         QemuMode::System => {
             if qemu_args.is_empty() {
@@ -32,11 +32,7 @@ pub fn run(config: &Config, elf: &std::path::Path) -> Result<()> {
                     "-S".into(),
                 ]);
             } else {
-                qemu_args.extend([
-                    elf.to_string_lossy().to_string(),
-                    "-s".into(),
-                    "-S".into(),
-                ]);
+                qemu_args.extend([elf.to_string_lossy().to_string(), "-s".into(), "-S".into()]);
             }
         }
     }
@@ -67,10 +63,7 @@ pub fn run(config: &Config, elf: &std::path::Path) -> Result<()> {
     let gdb_script_path = config.build_dir()?.join(".gdbinit");
     std::fs::write(&gdb_script_path, &gdb_script)?;
 
-    println!(
-        "{:>12} GDB → :1234",
-        "Connecting".cyan().bold()
-    );
+    println!("{:>12} GDB → :1234", "Connecting".cyan().bold());
 
     let _gdb_status = Command::new(&config.toolchain.gdb)
         .args(["-x", &gdb_script_path.to_string_lossy()])

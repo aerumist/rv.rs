@@ -19,9 +19,7 @@ pub fn run(name: Option<&str>) -> Result<()> {
         .arg(&elf)
         .stderr(Stdio::piped())
         .output()
-        .with_context(|| {
-            format!("Failed to run nm '{}'.", config.toolchain.nm)
-        })?;
+        .with_context(|| format!("Failed to run nm '{}'.", config.toolchain.nm))?;
 
     if !output.status.success() {
         std::io::stderr().write_all(&output.stderr)?;

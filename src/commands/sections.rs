@@ -20,9 +20,7 @@ pub fn run(name: Option<&str>) -> Result<()> {
         .arg(&elf)
         .stderr(Stdio::piped())
         .output()
-        .with_context(|| {
-            format!("Failed to run readelf '{}'.", config.toolchain.readelf)
-        })?;
+        .with_context(|| format!("Failed to run readelf '{}'.", config.toolchain.readelf))?;
 
     if !output.status.success() {
         std::io::stderr().write_all(&output.stderr)?;

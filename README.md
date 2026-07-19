@@ -1,22 +1,60 @@
-# rv — RISC-V Development Tool
+# rv
 
-A Cargo-like CLI for writing, building, running, and debugging RISC-V assembly and C programs.
+**A Cargo-like CLI for RISC-V assembly and C development.**
 
-## Install
+<!-- Replace YOUR_USERNAME/rv with the actual GitHub path -->
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Rust](https://img.shields.io/badge/Rust-2024_edition-orange.svg)](https://www.rust-lang.org/)
+[![GitHub stars](https://img.shields.io/github/stars/YOUR_USERNAME/rv?style=flat)](https://github.com/YOUR_USERNAME/rv/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/YOUR_USERNAME/rv)](https://github.com/YOUR_USERNAME/rv/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/YOUR_USERNAME/rv)](https://github.com/YOUR_USERNAME/rv/pulls)
+[![Last commit](https://img.shields.io/github/last-commit/YOUR_USERNAME/rv)](https://github.com/YOUR_USERNAME/rv/commits)
+
+---
+
+## Why rv?
+
+Writing RISC-V assembly means juggling cross-compilers, linker scripts, QEMU flags, and GDB configurations. `rv` wraps all of that behind a single command-line tool with a familiar Cargo-like interface.
+
+One config file. One command to build. One command to run.
+
+## Features
+
+- Cargo-like workflow (`rv new`, `rv build`, `rv run`, `rv debug`)
+- Configuration-driven builds via `rv.toml`
+- Mixed C and assembly projects
+- QEMU integration (user-mode and system-mode)
+- GDB debugging with automatic stub setup
+- ELF inspection (disassembly, symbols, sections)
+- File watching with auto-rebuild
+- Verbose mode showing exact toolchain commands
+- Extensible target system (bare metal, Linux user-mode, ESP32-C6)
+- No Rust code changes needed for new targets
+
+## Installation
+
+### From source
 
 ```bash
 cargo install --path .
 ```
 
-Or just use `cargo build --release` and put `target/release/rv` on your PATH.
+Or build and add to PATH manually:
 
-## Prerequisites
+```bash
+cargo build --release
+# Binary is at target/release/rv
+```
 
-- RISC-V GCC toolchain (`riscv64-elf-gcc`, `riscv64-linux-gnu-gcc`, or similar)
-- QEMU (`qemu-riscv64` for user-mode, `qemu-system-riscv64` for system)
-- GDB (optional, for `rv debug`)
+### Prerequisites
+
+- RISC-V GCC toolchain (`riscv64-elf-gcc` or `riscv64-linux-gnu-gcc`)
+- QEMU (`qemu-riscv64` for user-mode, `qemu-system-riscv64` for system-mode)
+- GDB (`riscv64-elf-gdb`, optional, for `rv debug`)
 
 On Arch Linux:
+
 ```bash
 pacman -S riscv64-elf-gcc riscv64-elf-binutils qemu-user qemu-system-riscv
 ```
@@ -28,6 +66,29 @@ rv new hello
 cd hello
 rv build
 rv run
+```
+
+This creates a project with a hello-world assembly program that uses Linux syscalls to print and exit.
+
+### Generated `rv.toml`
+
+```toml
+[project]
+name = "hello"
+
+[target]
+arch = "rv64imac"
+abi = "lp64"
+
+[toolchain]
+cc = "riscv64-elf-gcc"
+
+[output]
+directory = "build"
+
+[qemu]
+mode = "user"
+binary = "qemu-riscv64"
 ```
 
 ## Commands
@@ -44,25 +105,25 @@ rv run
 | `rv clean` | Remove the build directory |
 | `rv watch` | Rebuild on source file changes |
 
-All commands that accept `[name]` default to the project name from `rv.toml`.
+Commands accepting `[name]` default to the project name from `rv.toml`.
 
-`rv build`, `rv run`, and `rv debug` accept `--verbose` / `-v` to print the exact commands being executed.
+Use `--verbose` / `-v` with `build`, `run`, or `debug` to print the exact commands being executed.
 
 ## Configuration
 
-Each project has an `rv.toml`. Every section except `[project]` is optional with sensible defaults.
+Each project is configured via `rv.toml`. Only `[project]` is required; everything else has sensible defaults.
 
 ```toml
 [project]
 name = "hello"
 
 [target]
-arch = "rv64gc"
-abi = "lp64d"
+arch = "rv64gc"          # RISC-V ISA string
+abi = "lp64d"            # ABI (lp64, lp64d, ilp32, etc.)
 
 [sources]
-main = "boot.S"              # override default main assembly file
-c_files = ["helper.c"]       # C files to compile and link
+main = "boot.S"          # override default main assembly file
+c_files = ["helper.c"]   # C files to compile and link
 
 [toolchain]
 cc = "riscv64-linux-gnu-gcc"
@@ -74,22 +135,22 @@ gdb = "riscv64-linux-gnu-gdb"
 [build]
 optimization = "0"
 static = true
-compiler_flags = ["-Wall"]   # flags for C compilation
-assembler_flags = []         # flags for assembly compilation
-linker_flags = []            # extra flags passed to linker
+compiler_flags = ["-Wall"]
+assembler_flags = []
+linker_flags = []
 
 [link]
-driver = "cc"                # "ld" = bare metal (-nostdlib), "cc" = compiler driver (libc)
+driver = "cc"            # "ld" = bare metal, "cc" = compiler driver (libc)
 libraries = ["m"]
 library_paths = ["/usr/riscv64-linux-gnu/lib"]
-script = "linker.ld"         # linker script (bare metal)
+script = "linker.ld"     # linker script (bare metal)
 
 [compile]
 generate_debug_symbols = true
 
 [output]
 directory = "build"
-binary = "hello.elf"         # override output filename
+binary = "hello.elf"
 
 [qemu]
 mode = "user"
@@ -99,30 +160,14 @@ args = ["-L", "/usr/riscv64-linux-gnu"]
 
 ### Link drivers
 
-- `driver = "ld"` (default) — bare metal. Passes `-nostdlib`, you provide `_start`.
-- `driver = "cc"` — uses the compiler driver. Links crt startup, libc, libgcc automatically. Use with `main()` in C or assembly.
+| Driver | Use case | Behavior |
+|--------|----------|----------|
+| `ld` (default) | Bare metal | Passes `-nostdlib`, you provide `_start` |
+| `cc` | User-mode with libc | Links crt startup, libc, libgcc automatically |
 
-### Object file naming
+## Supported Targets
 
-Object files are named `{filename}.o` (e.g. `main.s.o`, `helper.c.o`) to avoid collisions when assembly and C files share a stem.
-
-### Verbose mode
-
-```
-$ rv build --verbose
-
-  riscv64-linux-gnu-gcc \
-    -c \
-    -march=rv64gc \
-    -mabi=lp64d \
-    -O0 \
-    -Wall \
-    src/helper.c \
-    -o \
-    build/helper.c.o
-```
-
-## Target Examples
+rv supports any RISC-V target that GCC can compile for. Configuration examples:
 
 ### Bare metal (default)
 
@@ -156,7 +201,7 @@ binary = "qemu-riscv64"
 args = ["-L", "/usr/riscv64-linux-gnu"]
 ```
 
-### ESP32-C6 (future)
+### ESP32-C6 (planned)
 
 ```toml
 [target]
@@ -170,20 +215,28 @@ cc = "riscv32-esp-elf-gcc"
 script = "esp32c6.ld"
 ```
 
-No Rust code changes required — just a different `rv.toml`.
+No source code changes required for new targets. Just write a different `rv.toml`.
 
-## Architecture
+## Documentation
 
-```
-src/
-├── main.rs          Entry point
-├── cli/mod.rs       Clap-derived CLI definition
-├── commands/        One module per command
-├── compiler/gcc.rs  Compilation and linking pipeline
-├── config/mod.rs    rv.toml deserialization
-├── gdb/debug.rs     GDB/QEMU debug orchestration
-├── qemu/run.rs      QEMU execution
-└── templates/       Project scaffolding templates
-```
+- [Contributing Guide](CONTRIBUTING.md)
+- [Architecture](ARCHITECTURE.md)
+- [Roadmap](ROADMAP.md)
+- [Changelog](CHANGELOG.md)
 
-Adding a new command: add a variant to `cli/mod.rs::Command`, a module in `commands/`, wire it in `Cli::run()`.
+## Roadmap
+
+See [ROADMAP.md](ROADMAP.md) for the full plan. Highlights:
+
+- Bare-metal target support with linker scripts
+- ESP32-C6 support
+- Project templates
+- Plugin system
+
+## Contributing
+
+Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+## License
+
+[MIT](LICENSE) &copy; 2026 Tahsin Ahmed
