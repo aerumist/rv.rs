@@ -2,15 +2,19 @@
 
 All notable changes to this project will be automatically documented here.
 
-## [unreleased]
+## [0.2.0] - 2026-07-19
 
 ### 🚀 Features
 
-- Interactive project setup with compiler detection (`rv new`)
-- Project templates: `default` (asm-only) and `qemu` (mixed ASM + C)
-- `--template` flag for non-interactive template selection
 - Update 17 files across 7 directories
 - Add GitHub Actions CI workflow and CI status badge to README
+- Replace automated post-commit changelog generation with a manual release script
+- Interactive project setup with compiler detection and templates
+- Validate ISA/ABI, fix templates for Linux userspace, show exit status
+
+### 📚 Documentation
+
+- Mark v0.2 roadmap items as complete
 
 ### 🎨 Styling
 

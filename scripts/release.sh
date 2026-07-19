@@ -30,8 +30,8 @@ if git rev-parse "$tag" &>/dev/null; then
   exit 1
 fi
 
-# Check for unexpected dirty state (allow Cargo.toml/Cargo.lock changes from set-version)
-dirty=$(git status --porcelain | grep -v '^ M Cargo.toml$' | grep -v '^ M Cargo.lock$' | grep -v '^M  Cargo.toml$' | grep -v '^M  Cargo.lock$' || true)
+# Check for unexpected dirty state (allow Cargo.toml/Cargo.lock/ROADMAP.md changes)
+dirty=$(git status --porcelain | grep -v '^ M Cargo.toml$' | grep -v '^ M Cargo.lock$' | grep -v '^M  Cargo.toml$' | grep -v '^M  Cargo.lock$' | grep -v '^ M ROADMAP.md$' | grep -v '^M  ROADMAP.md$' || true)
 if [[ -n "$dirty" ]]; then
   echo "error: working tree has unexpected changes:" >&2
   echo "$dirty" >&2
@@ -45,6 +45,7 @@ git cliff --tag "$tag" --output CHANGELOG.md
 
 git add Cargo.toml CHANGELOG.md
 [[ -f Cargo.lock ]] && git add Cargo.lock
+git diff --quiet ROADMAP.md 2>/dev/null || git add ROADMAP.md
 
 git commit -m "release: $tag"
 git tag -a "$tag" -m "Release $tag"
