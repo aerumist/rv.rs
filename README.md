@@ -14,13 +14,6 @@
       <img src="https://shieldcn.dev/github/license/aerumist/rv.rs.svg?variant=ghost&font=fira-code&theme=violet" alt="License: MIT">
     </picture>
   </a>
-  <a href="https://www.rust-lang.org/">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/rust-2024-orange.svg?logo=rust&variant=ghost&font=fira-code&mode=dark&theme=violet">
-      <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/badge/rust-2024-orange.svg?logo=rust&variant=ghost&font=fira-code&mode=light&theme=violet">
-      <img src="https://shieldcn.dev/badge/rust-2024-orange.svg?logo=rust&variant=ghost&font=fira-code&theme=violet" alt="Rust 2024">
-    </picture>
-  </a>
   <a href="https://github.com/aerumist/rv.rs/actions">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/ci/aerumist/rv.rs.svg?variant=ghost&font=fira-code&mode=dark&theme=violet&v=1">
@@ -38,11 +31,13 @@
 </p>
 
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/language-Rust-orange.svg?logo=rust&split=true&variant=ghost&font=fira-code&mode=dark&theme=violet">
-    <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/badge/language-Rust-orange.svg?logo=rust&split=true&variant=ghost&font=fira-code&mode=light&theme=violet">
-    <img src="https://shieldcn.dev/badge/language-Rust-orange.svg?logo=rust&split=true&variant=ghost&font=fira-code&theme=violet" alt="Rust">
-  </picture>
+  <a href="https://www.rust-lang.org/">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/rust-2024-orange.svg?logo=rust&split=true&variant=ghost&font=fira-code&mode=dark&theme=violet">
+      <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/badge/rust-2024-orange.svg?logo=rust&split=true&variant=ghost&font=fira-code&mode=light&theme=violet">
+      <img src="https://shieldcn.dev/badge/rust-2024-orange.svg?logo=rust&split=true&variant=ghost&font=fira-code&theme=violet" alt="Rust 2024">
+    </picture>
+  </a>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/language-C-blue.svg?logo=c&split=true&variant=ghost&font=fira-code&mode=dark&theme=violet">
     <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/badge/language-C-blue.svg?logo=c&split=true&variant=ghost&font=fira-code&mode=light&theme=violet">
@@ -272,6 +267,26 @@ script = "esp32c6.ld"
 ```
 
 No source code changes required for new targets. Just write a different `rv.toml`.
+
+## Releasing
+
+This project uses [Semantic Versioning](https://semver.org/) with manual releases.
+
+```bash
+# 1. Install cargo-edit (one-time)
+cargo install cargo-edit
+
+# 2. Bump the version in Cargo.toml
+cargo set-version patch   # or: minor / major
+
+# 3. Generate changelog, commit, and tag
+./scripts/release.sh
+
+# 4. Push
+git push && git push --tags
+```
+
+The release script generates `CHANGELOG.md` via [git-cliff](https://git-cliff.org), creates a `release: v<version>` commit, and tags it. Normal development commits are never affected.
 
 ## Documentation
 
