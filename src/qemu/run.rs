@@ -45,10 +45,33 @@ pub fn run(config: &Config, elf: &std::path::Path) -> Result<()> {
             )
         })?;
 
+    print_exit_status(&status);
+
     if !status.success() {
-        let code = status.code().unwrap_or(-1);
+        let code = status.code().unwrap_or(1);
         std::process::exit(code);
     }
 
     Ok(())
+}
+
+fn print_exit_status(status: &std::process::ExitStatus) {
+    #[cfg(unix)]
+    {
+        use std::os::unix::process::ExitStatusExt;
+        if let Some(sig) = status.signal() {
+            println!(
+                "\n{}",
+                format!("Process terminated by signal {sig}").yellow()
+            );
+            return;
+        }
+    }
+    let code = status.code().unwrap_or(0);
+    let msg = format!("Process exited with code {code}");
+    if code == 0 {
+        println!("\n{}", msg.dimmed());
+    } else {
+        println!("\n{}", msg.yellow());
+    }
 }

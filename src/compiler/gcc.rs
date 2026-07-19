@@ -7,8 +7,11 @@ use anyhow::{Context, Result, bail};
 use colored::Colorize;
 
 use crate::config::{Config, LinkDriver};
+use crate::platform;
 
 pub fn run(config: &Config, name: Option<&str>, verbose: bool) -> Result<()> {
+    platform::validate(config)?;
+
     let start = Instant::now();
     let target = config.resolve_target(name);
     let build_dir = config.build_dir()?;

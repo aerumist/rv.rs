@@ -3,6 +3,7 @@ mod commands;
 mod compiler;
 mod config;
 mod gdb;
+mod platform;
 mod qemu;
 mod templates;
 

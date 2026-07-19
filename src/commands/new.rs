@@ -9,9 +9,9 @@ use dialoguer::{Input, Select, theme::ColorfulTheme};
 use crate::templates;
 
 const KNOWN_COMPILERS: &[&str] = &[
+    "riscv64-linux-gnu-gcc",
     "riscv64-elf-gcc",
     "riscv64-unknown-elf-gcc",
-    "riscv64-linux-gnu-gcc",
     "riscv32-elf-gcc",
     "riscv32-unknown-elf-gcc",
 ];
@@ -32,6 +32,10 @@ fn detect_compilers() -> Vec<String> {
 
 fn toolchain_prefix(compiler: &str) -> &str {
     compiler.strip_suffix("gcc").unwrap_or("riscv64-elf-")
+}
+
+fn is_linux_toolchain(compiler: &str) -> bool {
+    compiler.contains("linux-gnu-gcc")
 }
 
 pub fn run(name: &str, template: &str) -> Result<()> {
@@ -107,19 +111,31 @@ pub fn run(name: &str, template: &str) -> Result<()> {
             .interact_text()?
     };
 
-    // --- Architecture ---
-    let archs = &["rv64imac", "rv64gc", "rv32imac", "rv32i"];
-    let arch_idx = Select::with_theme(&theme)
-        .with_prompt("Architecture")
-        .items(archs)
-        .default(0)
-        .interact()?;
-    let arch = archs[arch_idx];
+    // --- Architecture / ABI (platform-aware defaults) ---
+    let (arch, abi) = if is_linux_toolchain(&compiler) {
+        // Linux toolchain only supports rv64gc/lp64d
+        println!(
+            "  {}  Linux toolchain detected — using rv64gc/lp64d",
+            "→".cyan()
+        );
+        ("rv64gc".to_string(), "lp64d".to_string())
+    } else {
+        let archs = &["rv64imac", "rv64gc", "rv32imac", "rv32i"];
+        let arch_idx = Select::with_theme(&theme)
+            .with_prompt("Architecture")
+            .items(archs)
+            .default(0)
+            .interact()?;
+        let arch = archs[arch_idx].to_string();
 
-    // --- ABI ---
-    let abi = match arch {
-        a if a.starts_with("rv64") => "lp64",
-        _ => "ilp32",
+        let abi = match arch.as_str() {
+            a if a.contains("gc") || a.contains('g') => {
+                if a.starts_with("rv64") { "lp64d" } else { "ilp32d" }
+            }
+            a if a.starts_with("rv64") => "lp64",
+            _ => "ilp32",
+        };
+        (arch, abi.to_string())
     };
 
     // --- QEMU mode ---
@@ -131,7 +147,7 @@ pub fn run(name: &str, template: &str) -> Result<()> {
         .interact()?;
     let qemu_mode = qemu_modes[qemu_idx];
 
-    let qemu_binary = match (qemu_mode, arch) {
+    let qemu_binary = match (qemu_mode, arch.as_str()) {
         ("user", a) if a.starts_with("rv64") => "qemu-riscv64",
         ("user", _) => "qemu-riscv32",
         ("system", a) if a.starts_with("rv64") => "qemu-system-riscv64",
@@ -147,26 +163,26 @@ pub fn run(name: &str, template: &str) -> Result<()> {
     fs::create_dir_all(path.join("build"))?;
 
     let prefix = toolchain_prefix(&compiler);
-    let config = ProjectConfig {
+    let cfg = ProjectConfig {
         name: name.to_string(),
         compiler: compiler.clone(),
         prefix: prefix.to_string(),
-        arch: arch.to_string(),
-        abi: abi.to_string(),
+        arch: arch.clone(),
+        abi: abi.clone(),
         qemu_mode: qemu_mode.to_string(),
         qemu_binary: qemu_binary.to_string(),
     };
 
     match template_idx {
         0 => {
-            fs::write(path.join("rv.toml"), render_toml(&config, false))?;
+            fs::write(path.join("rv.toml"), render_toml(&cfg, false))?;
             fs::write(
                 path.join("src").join(format!("{name}.S")),
                 templates::starter_asm(name),
             )?;
         }
         1 => {
-            fs::write(path.join("rv.toml"), render_toml(&config, true))?;
+            fs::write(path.join("rv.toml"), render_toml(&cfg, true))?;
             fs::write(
                 path.join("src").join("main.S"),
                 templates::starter_asm_qemu(name),
@@ -218,9 +234,7 @@ struct ProjectConfig {
 
 fn render_toml(cfg: &ProjectConfig, mixed: bool) -> String {
     let sources = if mixed {
-        format!(
-            "\n[sources]\nmain = \"main.S\"\nc_files = [\"helper.c\"]\n"
-        )
+        "\n[sources]\nmain = \"main.S\"\nc_files = [\"helper.c\"]\n".to_string()
     } else {
         String::new()
     };
@@ -229,6 +243,13 @@ fn render_toml(cfg: &ProjectConfig, mixed: bool) -> String {
         "\n[link]\ndriver = \"cc\"\n".to_string()
     } else {
         String::new()
+    };
+
+    // Linux toolchain needs static linking for QEMU user mode
+    let static_link = if is_linux_toolchain(&cfg.compiler) {
+        "static = true\n"
+    } else {
+        ""
     };
 
     format!(
@@ -248,7 +269,7 @@ gdb = "{prefix}gdb"
 
 [build]
 optimization = "0"
-{link}
+{static_link}{link}
 [output]
 directory = "build"
 
@@ -262,6 +283,7 @@ binary = "{qemu_binary}"
         sources = sources,
         cc = cfg.compiler,
         prefix = cfg.prefix,
+        static_link = static_link,
         link = link,
         qemu_mode = cfg.qemu_mode,
         qemu_binary = cfg.qemu_binary,
