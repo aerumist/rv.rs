@@ -101,6 +101,22 @@ Rules:
 
 The changelog is generated from commit messages via [git-cliff](https://git-cliff.org/), so well-structured commits directly improve the project history.
 
+## Releasing
+
+1. Make all feature/fix commits as normal
+2. Edit `version` in `Cargo.toml` (e.g. `"0.2.0"` → `"0.3.0"`)
+3. Optionally update `ROADMAP.md` to check off completed items
+4. Run `./scripts/release.sh`
+
+The script generates the changelog from git history, stages everything, creates the release commit, and tags it. Do not commit the version bump manually — the script handles that.
+
+```bash
+# Example: releasing v0.3.0
+sed -i 's/^version = ".*"/version = "0.3.0"/' Cargo.toml
+./scripts/release.sh
+git push && git push --tags
+```
+
 ## Branch Naming
 
 Use a category prefix:
