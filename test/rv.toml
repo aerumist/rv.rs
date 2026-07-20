@@ -1,0 +1,24 @@
+[project]
+name = "test"
+
+[target]
+arch = "rv64gc"
+abi = "lp64d"
+
+[toolchain]
+cc = "riscv64-linux-gnu-gcc"
+objdump = "riscv64-linux-gnu-objdump"
+nm = "riscv64-linux-gnu-nm"
+readelf = "riscv64-linux-gnu-readelf"
+gdb = "riscv64-linux-gnu-gdb"
+
+[build]
+optimization = "0"
+static = true
+
+[output]
+directory = "build"
+
+[qemu]
+mode = "user"
+binary = "qemu-riscv64"

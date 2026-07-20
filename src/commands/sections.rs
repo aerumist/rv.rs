@@ -7,10 +7,10 @@ use colored::Colorize;
 use crate::compiler;
 use crate::config::Config;
 
-pub fn run(name: Option<&str>) -> Result<()> {
+pub fn run() -> Result<()> {
     let config = Config::load()?;
-    let target = config.resolve_target(name);
-    compiler::gcc::run(&config, Some(&target), false)?;
+    let target = config.resolve_target(None);
+    compiler::gcc::run(&config, false)?;
     let elf = config.elf_path(&target)?;
 
     println!("{:>12} {}", "Sections".cyan().bold(), elf.display());

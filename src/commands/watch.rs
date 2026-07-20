@@ -25,7 +25,7 @@ pub fn run() -> Result<()> {
         .watcher()
         .watch(&source_dir, notify::RecursiveMode::Recursive)?;
 
-    if let Err(e) = compiler::gcc::run(&config, None, false) {
+    if let Err(e) = compiler::gcc::run(&config, false) {
         eprintln!("{:>12} {e}", "Error".red().bold());
     }
 
@@ -39,7 +39,7 @@ pub fn run() -> Result<()> {
                 });
                 if has_source {
                     println!("\n{:>12} change detected", "Rebuild".yellow().bold());
-                    if let Err(e) = compiler::gcc::run(&config, None, false) {
+                    if let Err(e) = compiler::gcc::run(&config, false) {
                         eprintln!("{:>12} {e}", "Error".red().bold());
                     }
                 }

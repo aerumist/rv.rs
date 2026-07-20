@@ -79,7 +79,7 @@ Support for bare-metal targets, ESP32-C6 boards, mixed C projects, and more is p
 - Mixed C and assembly projects
 - QEMU integration (user-mode and system-mode)
 - GDB debugging with automatic stub setup
-- ELF inspection (disassembly, symbols, sections)
+- ELF inspection (disassembly, symbols, sections, hex dump)
 - File watching with auto-rebuild
 - Verbose mode showing exact toolchain commands
 - Extensible target system (bare metal, Linux user-mode, ESP32-C6)
@@ -170,18 +170,21 @@ binary = "qemu-riscv64"
 | Command              | Description                                    |
 | -------------------- | ---------------------------------------------- |
 | `rv new <name>`      | Interactive project setup with compiler detection |
-| `rv build [name]`    | Compile sources to ELF                         |
-| `rv run [name]`      | Build and run in QEMU                          |
-| `rv debug [name]`    | Build, start QEMU with GDB server, attach GDB  |
-| `rv disasm [name]`   | Disassemble the ELF with objdump               |
-| `rv symbols [name]`  | List symbols with nm                           |
-| `rv sections [name]` | Show ELF sections with readelf                 |
+| `rv build`           | Compile sources to ELF                         |
+| `rv run`             | Build and run in QEMU                          |
+| `rv debug`           | Build, start QEMU with GDB server, attach GDB  |
+| `rv disasm`          | Disassemble the ELF with objdump               |
+| `rv hex`             | Hex dump of the ELF binary                     |
+| `rv symbols`         | List symbols with nm                           |
+| `rv sections`        | Show ELF sections with readelf                 |
 | `rv clean`           | Remove the build directory                     |
 | `rv watch`           | Rebuild on source file changes                 |
 
-Commands accepting `[name]` default to the project name from `rv.toml`.
-
 Use `--verbose` / `-v` with `build`, `run`, or `debug` to print the exact commands being executed.
+
+`rv disasm` accepts `--source` / `-s` to interleave source lines with disassembly. `rv hex` accepts `--section` / `-s` to dump a specific section.
+
+`rv disasm` accepts `--source` / `-s` to interleave source lines with disassembly. `rv hex` accepts `--section` / `-s` to dump a specific section.
 
 ## Configuration
 

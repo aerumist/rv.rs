@@ -4,10 +4,9 @@ use crate::compiler;
 use crate::config::Config;
 use crate::qemu;
 
-pub fn run(name: Option<&str>, verbose: bool) -> Result<()> {
+pub fn run(verbose: bool) -> Result<()> {
     let config = Config::load()?;
-    let target = config.resolve_target(name);
-    compiler::gcc::run(&config, Some(&target), verbose)?;
-    let elf = config.elf_path(&target)?;
+    compiler::gcc::run(&config, verbose)?;
+    let elf = config.elf_path(&config.resolve_target(None))?;
     qemu::run::run(&config, &elf)
 }

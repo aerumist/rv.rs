@@ -9,22 +9,22 @@ use colored::Colorize;
 use crate::config::{Config, LinkDriver};
 use crate::platform;
 
-pub fn run(config: &Config, name: Option<&str>, verbose: bool) -> Result<()> {
+pub fn run(config: &Config, verbose: bool) -> Result<()> {
     platform::validate(config)?;
 
     let start = Instant::now();
-    let target = config.resolve_target(name);
+    let target = config.resolve_target(None);
     let build_dir = config.build_dir()?;
     std::fs::create_dir_all(&build_dir)?;
 
-    let mut sources = if name.is_some() || config.sources.main.is_some() {
+    let mut sources = if config.sources.main.is_some() {
         vec![config.find_source(&target)?]
     } else {
         config.all_sources()?
     };
 
-    // Always include c_files when using find_source (main override / explicit name)
-    if name.is_some() || config.sources.main.is_some() {
+    // Always include c_files when using find_source (main override)
+    if config.sources.main.is_some() {
         let src_dir = config.source_dir()?;
         for c_file in &config.sources.c_files {
             let path = src_dir.join(c_file);

@@ -7,11 +7,11 @@ use colored::Colorize;
 use crate::compiler;
 use crate::config::Config;
 
-pub fn run(name: Option<&str>, section: Option<&str>) -> Result<()> {
+pub fn run(section: Option<&str>) -> Result<()> {
     let config = Config::load()?;
-    let target = config.resolve_target(name);
+    let target = config.resolve_target(None);
 
-    compiler::gcc::run(&config, Some(&target), false)?;
+    compiler::gcc::run(&config, false)?;
     let elf = config.elf_path(&target)?;
 
     println!("{:>12} {}", "Hex dump".cyan().bold(), elf.display());
