@@ -7,23 +7,23 @@ use colored::Colorize;
 use crate::compiler;
 use crate::config::Config;
 
-pub fn run(name: Option<&str>, source: bool) -> Result<()> {
+pub fn run(name: Option<&str>, section: Option<&str>) -> Result<()> {
     let config = Config::load()?;
     let target = config.resolve_target(name);
 
     compiler::gcc::run(&config, Some(&target), false)?;
     let elf = config.elf_path(&target)?;
 
-    println!("{:>12} {}", "Disasm".cyan().bold(), elf.display());
+    println!("{:>12} {}", "Hex dump".cyan().bold(), elf.display());
 
-    let mut args = vec!["-d".to_string(), "-M".to_string(), "no-aliases".to_string()];
-    if source {
-        args.push("-S".to_string());
+    let mut cmd = Command::new(&config.toolchain.objdump);
+    cmd.arg("-s");
+    if let Some(sec) = section {
+        cmd.arg(format!("--section={sec}"));
     }
+    cmd.arg(&elf);
 
-    let output = Command::new(&config.toolchain.objdump)
-        .args(&args)
-        .arg(&elf)
+    let output = cmd
         .stderr(Stdio::piped())
         .output()
         .with_context(|| {

@@ -48,6 +48,9 @@ enum Command {
     Disasm {
         /// Specific source file (without extension)
         name: Option<String>,
+        /// Interleave source lines with disassembly
+        #[arg(short, long)]
+        source: bool,
     },
     /// Display symbols from the ELF binary
     Symbols {
@@ -58,6 +61,14 @@ enum Command {
     Sections {
         /// Specific source file (without extension)
         name: Option<String>,
+    },
+    /// Hex dump of the ELF binary
+    Hex {
+        /// Specific source file (without extension)
+        name: Option<String>,
+        /// Dump a specific section
+        #[arg(short, long)]
+        section: Option<String>,
     },
     /// Remove the build directory
     Clean,
@@ -76,9 +87,14 @@ impl Cli {
             Command::Build { name, verbose } => commands::build::run(name.as_deref(), verbose),
             Command::Run { name, verbose } => commands::run::run(name.as_deref(), verbose),
             Command::Debug { name, verbose } => commands::debug::run(name.as_deref(), verbose),
-            Command::Disasm { name } => commands::disasm::run(name.as_deref()),
+            Command::Disasm { name, source } => {
+                commands::disasm::run(name.as_deref(), source)
+            }
             Command::Symbols { name } => commands::symbols::run(name.as_deref()),
             Command::Sections { name } => commands::sections::run(name.as_deref()),
+            Command::Hex { name, section } => {
+                commands::hex::run(name.as_deref(), section.as_deref())
+            }
             Command::Clean => commands::clean::run(),
             Command::Watch => commands::watch::run(),
         }

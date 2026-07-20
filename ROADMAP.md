@@ -24,13 +24,13 @@ This roadmap reflects current plans for rv. Priorities may shift based on commun
 - [x] Disassembly (`rv disasm`)
 - [x] Symbol listing (`rv symbols`)
 - [x] Section listing (`rv sections`)
-- [ ] Hex dump command
-- [ ] Source-interleaved disassembly
+- [x] Hex dump command
+- [x] Source-interleaved disassembly
 
 ## v0.4 — Bare Metal
 
-- [ ] Linker script support
-- [ ] QEMU system-mode execution
+- [x] Linker script support
+- [x] QEMU system-mode execution
 - [ ] Bare-metal project templates
 - [ ] Memory map visualization
 
