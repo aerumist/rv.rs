@@ -57,11 +57,16 @@ pub fn run(name: &str, template: &str) -> Result<()> {
     println!();
 
     // --- Template selection ---
-    let templates_list = &["default — assembly only", "qemu — mixed ASM + C (QEMU user mode)"];
+    let templates_list = &[
+        "default — assembly only",
+        "qemu — mixed ASM + C (QEMU user mode)",
+        "bare — bare-metal with linker script (QEMU system mode)",
+    ];
     let template_idx = if template != "default" {
         match template {
             "qemu" => 1,
-            _ => bail!("Unknown template '{template}'. Available: default, qemu"),
+            "bare" => 2,
+            _ => bail!("Unknown template '{template}'. Available: default, qemu, bare"),
         }
     } else {
         Select::with_theme(&theme)
@@ -175,14 +180,14 @@ pub fn run(name: &str, template: &str) -> Result<()> {
 
     match template_idx {
         0 => {
-            fs::write(path.join("rv.toml"), render_toml(&cfg, false))?;
+            fs::write(path.join("rv.toml"), render_toml(&cfg, false, false))?;
             fs::write(
                 path.join("src").join(format!("{name}.S")),
                 templates::starter_asm(name),
             )?;
         }
         1 => {
-            fs::write(path.join("rv.toml"), render_toml(&cfg, true))?;
+            fs::write(path.join("rv.toml"), render_toml(&cfg, true, false))?;
             fs::write(
                 path.join("src").join("main.S"),
                 templates::starter_asm_qemu(name),
@@ -190,6 +195,17 @@ pub fn run(name: &str, template: &str) -> Result<()> {
             fs::write(
                 path.join("src").join("helper.c"),
                 templates::starter_c_qemu(),
+            )?;
+        }
+        2 => {
+            fs::write(path.join("rv.toml"), render_toml(&cfg, false, true))?;
+            fs::write(
+                path.join("src").join(format!("{name}.S")),
+                templates::starter_asm_bare(name),
+            )?;
+            fs::write(
+                path.join("linker.ld"),
+                templates::linker_script_virt(),
             )?;
         }
         _ => unreachable!(),
@@ -232,7 +248,7 @@ struct ProjectConfig {
     qemu_binary: String,
 }
 
-fn render_toml(cfg: &ProjectConfig, mixed: bool) -> String {
+fn render_toml(cfg: &ProjectConfig, mixed: bool, bare: bool) -> String {
     let sources = if mixed {
         "\n[sources]\nmain = \"main.S\"\nc_files = [\"helper.c\"]\n".to_string()
     } else {
@@ -241,6 +257,8 @@ fn render_toml(cfg: &ProjectConfig, mixed: bool) -> String {
 
     let link = if mixed {
         "\n[link]\ndriver = \"cc\"\n".to_string()
+    } else if bare {
+        "\n[link]\ndriver = \"ld\"\nscript = \"linker.ld\"\n".to_string()
     } else {
         String::new()
     };
