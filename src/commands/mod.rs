@@ -3,6 +3,7 @@ pub mod clean;
 pub mod debug;
 pub mod disasm;
 pub mod hex;
+pub mod memmap;
 pub mod new;
 pub mod run;
 pub mod sections;

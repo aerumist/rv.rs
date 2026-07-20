@@ -95,3 +95,96 @@ void print_result(long value) {
 }
 "#
 }
+
+pub fn starter_asm_bare(name: &str) -> String {
+    format!(
+        r#"# {name}.S — Bare-metal RISC-V startup for QEMU virt machine
+# No OS, no libc. Runs in QEMU system mode (-machine virt).
+
+.equ UART0, 0x10000000
+
+.section .text.init
+.global _start
+
+_start:
+    # Set up stack pointer (top of 128MB RAM)
+    li t0, 0x88000000
+    mv sp, t0
+
+    # Clear BSS
+    la t0, __bss_start
+    la t1, __bss_end
+1:  bge t0, t1, 2f
+    sd zero, 0(t0)
+    addi t0, t0, 8
+    j 1b
+2:
+    # Print "Hello from {name}!" to UART0
+    la a0, msg
+    jal ra, uart_puts
+
+    # Halt: write to QEMU finisher device to exit cleanly
+    li t0, 0x100000
+    li t1, 0x5555
+    sw t1, 0(t0)
+
+    # Fallback halt loop
+3:  wfi
+    j 3b
+
+uart_puts:
+    li t2, UART0
+4:  lbu t3, 0(a0)
+    beqz t3, 5f
+    sw t3, 0(t2)
+    addi a0, a0, 1
+    j 4b
+5:  ret
+
+.section .rodata
+msg:
+    .ascii "Hello from {name}!\n"
+    .equ msg_len, . - msg
+"#
+    )
+}
+
+pub fn linker_script_virt() -> &'static str {
+    r#"/* Linker script for QEMU virt machine — 128MB RAM at 0x80000000 */
+
+ENTRY(_start)
+
+MEMORY
+{
+    RAM (rwx) : ORIGIN = 0x80000000, LENGTH = 128M
+}
+
+SECTIONS
+{
+    .text : {
+        *(.text.init)
+        *(.text .text.*)
+    } > RAM
+
+    .rodata : {
+        *(.rodata .rodata.*)
+    } > RAM
+
+    .data : {
+        *(.data .data.*)
+    } > RAM
+
+    .bss : {
+        __bss_start = .;
+        *(.bss .bss.*)
+        *(COMMON)
+        __bss_end = .;
+    } > RAM
+
+    /DISCARD/ : {
+        *(.comment)
+        *(.eh_frame)
+    }
+}
+"#
+}

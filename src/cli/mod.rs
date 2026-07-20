@@ -54,6 +54,12 @@ enum Command {
         #[arg(short, long)]
         section: Option<String>,
     },
+    /// Visualize ELF memory map
+    Memmap {
+        /// Print commands as they execute
+        #[arg(short, long)]
+        verbose: bool,
+    },
     /// Remove the build directory
     Clean,
     /// Watch source files and rebuild on changes
@@ -77,6 +83,7 @@ impl Cli {
             Command::Hex { section } => {
                 commands::hex::run(section.as_deref())
             }
+            Command::Memmap { verbose } => commands::memmap::run(verbose),
             Command::Clean => commands::clean::run(),
             Command::Watch => commands::watch::run(),
         }

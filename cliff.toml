@@ -17,7 +17,7 @@ body = """
 """
 trim = true
 postprocessors = [
-    { pattern = '<REPO>', replace = "https://github.com/tahsin-dev225/rv" },
+    { pattern = '<REPO>', replace = "https://github.com/aerumist/rv" },
 ]
 
 [git]

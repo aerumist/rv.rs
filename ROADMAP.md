@@ -31,8 +31,8 @@ This roadmap reflects current plans for rv. Priorities may shift based on commun
 
 - [x] Linker script support
 - [x] QEMU system-mode execution
-- [ ] Bare-metal project templates
-- [ ] Memory map visualization
+- [x] Bare-metal project templates
+- [x] Memory map visualization
 
 ## v0.5 — Embedded Targets
 

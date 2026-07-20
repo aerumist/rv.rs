@@ -143,6 +143,7 @@ rv new hello --template qemu   # Mixed ASM + C project for QEMU user mode
 |----------|-------------|
 | `default` | Assembly-only hello world using Linux syscalls |
 | `qemu` | Mixed ASM + C with cross-language calls (fibonacci example) |
+| `bare` | Bare-metal with linker script for QEMU system mode (virt machine) |
 
 ### Generated `rv.toml`
 
@@ -177,12 +178,11 @@ binary = "qemu-riscv64"
 | `rv hex`             | Hex dump of the ELF binary                     |
 | `rv symbols`         | List symbols with nm                           |
 | `rv sections`        | Show ELF sections with readelf                 |
+| `rv memmap`          | Visualize ELF memory map                       |
 | `rv clean`           | Remove the build directory                     |
 | `rv watch`           | Rebuild on source file changes                 |
 
-Use `--verbose` / `-v` with `build`, `run`, or `debug` to print the exact commands being executed.
-
-`rv disasm` accepts `--source` / `-s` to interleave source lines with disassembly. `rv hex` accepts `--section` / `-s` to dump a specific section.
+Use `--verbose` / `-v` with `build`, `run`, `debug`, or `memmap` to print the exact commands being executed.
 
 `rv disasm` accepts `--source` / `-s` to interleave source lines with disassembly. `rv hex` accepts `--section` / `-s` to dump a specific section.
 

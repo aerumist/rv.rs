@@ -2,6 +2,19 @@
 
 All notable changes to this project will be automatically documented here.
 
+## [0.4.0] - 2026-07-20
+
+### 🚀 Features
+
+- Add hex dump command, source-interleaved disassembly
+- Add hex command and update README with new commands
+- Implement file hashing for source change detection in watch command
+- Add bare-metal project template for QEMU system mode
+- Add memory map visualization command (rv memmap)
+
+### 📚 Documentation
+
+- Update project files for v0.4 release
 ## [0.3.0] - 2026-07-20
 
 ### 📚 Documentation
