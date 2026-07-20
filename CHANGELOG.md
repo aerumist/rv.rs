@@ -2,6 +2,15 @@
 
 All notable changes to this project will be automatically documented here.
 
+## [0.3.0] - 2026-07-20
+
+### 📚 Documentation
+
+- Add releasing instructions to CONTRIBUTING.md
+
+### ⚙️ Miscellaneous Tasks
+
+- Update dependency lockfile
 ## [0.2.0] - 2026-07-19
 
 ### 🚀 Features
@@ -11,10 +20,6 @@ All notable changes to this project will be automatically documented here.
 - Replace automated post-commit changelog generation with a manual release script
 - Interactive project setup with compiler detection and templates
 - Validate ISA/ABI, fix templates for Linux userspace, show exit status
-
-### 📚 Documentation
-
-- Mark v0.2 roadmap items as complete
 
 ### 🎨 Styling
 
