@@ -95,6 +95,7 @@ pub fn run(verbose: bool) -> Result<()> {
     Ok(())
 }
 
+#[derive(Debug, PartialEq, Eq)]
 struct Section {
     name: String,
     addr: u64,
@@ -125,28 +126,76 @@ fn parse_sections(raw: &str) -> Vec<Section> {
 
     for line in raw.lines() {
         let line = line.trim();
-        // readelf section lines look like:
-        //   [Nr] Name          Type     Address          Off      Size   ES Flg Lk Inf Al
-        //   [ 0]               NULL     0000000000000000 000000 000000 00      0   0  0
-        // We need the Name, Address, Size, and Flags columns.
-        if !line.starts_with('[') {
+        let open_idx = match line.find('[') {
+            Some(i) => i,
+            None => continue,
+        };
+        let close_idx = match line[open_idx..].find(']') {
+            Some(i) => open_idx + i,
+            None => continue,
+        };
+
+        // Skip header lines like [Nr] or non-section brackets
+        let nr_str = line[open_idx + 1..close_idx].trim();
+        if nr_str.eq_ignore_ascii_case("Nr") || nr_str.parse::<u32>().is_err() {
             continue;
         }
 
-        // Split on whitespace, skip the [Nr] token
-        let tokens: Vec<&str> = line.split_whitespace().collect();
-        if tokens.len() < 8 {
+        let rest = line[close_idx + 1..].trim();
+        let tokens: Vec<&str> = rest.split_whitespace().collect();
+
+        // Standard layout of tokens after ]:
+        // With name: [Name, Type, Address, Off, Size, ES, (Flg), Lk, Inf, Al]
+        // Without name: [Type, Address, Off, Size, ES, (Flg), Lk, Inf, Al]
+        if tokens.len() < 5 {
             continue;
         }
 
-        let name = tokens[1].to_string();
-        let addr = u64::from_str_radix(tokens[3].trim_start_matches("0x"), 16).unwrap_or(0);
-        // Size is at index 5 for 64-bit, but readelf -W uses a different layout.
-        // With -W (wide), the columns are: [Nr] Name Type Address Off Size ES Flg Lk Inf Al
-        let size = u64::from_str_radix(tokens[5].trim_start_matches("0x"), 16).unwrap_or(0);
-        let flags = tokens[6].to_string();
+        let (name, addr_idx) = if u64::from_str_radix(tokens[1].trim_start_matches("0x"), 16).is_ok()
+            && !tokens[1].chars().all(|c| c.is_ascii_digit())
+        {
+            // tokens[1] is Type (not pure decimal), tokens[2] is Address
+            (tokens[0].to_string(), 2)
+        } else if u64::from_str_radix(tokens[1].trim_start_matches("0x"), 16).is_ok() {
+            // tokens[1] is Address (Name is empty)
+            (String::new(), 1)
+        } else {
+            // Fallback: tokens[0] is Name, tokens[2] is Address
+            (tokens[0].to_string(), 2)
+        };
 
-        // Only include sections that are allocated in memory
+        if tokens.len() < addr_idx + 3 {
+            continue;
+        }
+
+        let addr = match u64::from_str_radix(tokens[addr_idx].trim_start_matches("0x"), 16) {
+            Ok(val) => val,
+            Err(_) => continue,
+        };
+
+        let _off = match u64::from_str_radix(tokens[addr_idx + 1].trim_start_matches("0x"), 16) {
+            Ok(val) => val,
+            Err(_) => continue,
+        };
+
+        let size = match u64::from_str_radix(tokens[addr_idx + 2].trim_start_matches("0x"), 16) {
+            Ok(val) => val,
+            Err(_) => continue,
+        };
+
+        // Flg (if present) is at addr_idx + 4
+        let flags = if tokens.len() > addr_idx + 4 {
+            let candidate = tokens[addr_idx + 4];
+            // Flags consist of letters (e.g. AX, A, WA, MS), whereas Lk is a decimal integer
+            if !candidate.chars().all(|c| c.is_ascii_digit()) {
+                candidate.to_string()
+            } else {
+                String::new()
+            }
+        } else {
+            String::new()
+        };
+
         if flags.contains('A') {
             sections.push(Section {
                 name,
@@ -159,4 +208,65 @@ fn parse_sections(raw: &str) -> Vec<Section> {
 
     sections.sort_by_key(|s| s.addr);
     sections
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_parse_sections_64bit() {
+        let raw = r#"
+There are 29 section headers, starting at offset 0x31a8:
+
+Section Headers:
+  [Nr] Name              Type            Address          Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            0000000000000000 000000 000000 00      0   0  0
+  [ 1] .text             PROGBITS        00000000000100f0 0000f0 000084 00  AX  0   0  4
+  [ 2] .rodata           PROGBITS        0000000000010174 000174 000018 00   A  0   0  4
+  [ 3] .data             PROGBITS        0000000000011000 001000 000010 00  WA  0   0  8
+  [ 4] .bss              NOBITS          0000000000011010 001010 000020 00  WA  0   0  8
+  [ 5] .comment          PROGBITS        0000000000000000 001030 00002b 01  MS  0   0  1
+  [ 6] .symtab           SYMTAB          0000000000000000 001090 000630 18      8  33  8
+  [10] .eh_frame         PROGBITS        0000000000010190 000190 000038 00   A  0   0  8
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+"#;
+        let sections = parse_sections(raw);
+        assert_eq!(
+            sections,
+            vec![
+                Section {
+                    name: ".text".into(),
+                    addr: 0x100f0,
+                    size: 0x84,
+                    flags: "AX".into(),
+                },
+                Section {
+                    name: ".rodata".into(),
+                    addr: 0x10174,
+                    size: 0x18,
+                    flags: "A".into(),
+                },
+                Section {
+                    name: ".eh_frame".into(),
+                    addr: 0x10190,
+                    size: 0x38,
+                    flags: "A".into(),
+                },
+                Section {
+                    name: ".data".into(),
+                    addr: 0x11000,
+                    size: 0x10,
+                    flags: "WA".into(),
+                },
+                Section {
+                    name: ".bss".into(),
+                    addr: 0x11010,
+                    size: 0x20,
+                    flags: "WA".into(),
+                },
+            ]
+        );
+    }
 }
