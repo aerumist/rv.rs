@@ -17,14 +17,16 @@ pub fn run(config: &Config, verbose: bool) -> Result<()> {
     let build_dir = config.build_dir()?;
     std::fs::create_dir_all(&build_dir)?;
 
-    let mut sources = if config.sources.main.is_some() {
+    let mut sources = if let Some(entry) = &config.entry {
+        vec![entry.clone()]
+    } else if config.sources.main.is_some() {
         vec![config.find_source(&target)?]
     } else {
         config.all_sources()?
     };
 
     // Always include c_files when using find_source (main override)
-    if config.sources.main.is_some() {
+    if config.entry.is_none() && config.sources.main.is_some() {
         let src_dir = config.source_dir()?;
         for c_file in &config.sources.c_files {
             let path = src_dir.join(c_file);

@@ -1,4 +1,4 @@
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 
 use anyhow::{Context, Result, bail};
 use serde::Deserialize;
@@ -22,6 +22,13 @@ pub struct Config {
     pub output: Output,
     #[serde(default)]
     pub qemu: Qemu,
+
+    // ponytail: set only in ad-hoc mode (`rv run file.s`), skipped by serde.
+    // `root` overrides the rv.toml-derived project root; `entry` forces a single source file.
+    #[serde(skip)]
+    pub root: Option<PathBuf>,
+    #[serde(skip)]
+    pub entry: Option<PathBuf>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -222,6 +229,52 @@ impl Config {
         Ok(config)
     }
 
+    /// Load from `rv.toml` normally, or build an ad-hoc config for a single
+    /// standalone source file when one is given (`rv run file.s`).
+    pub fn load_or_adhoc(file: Option<&str>) -> Result<Self> {
+        match file {
+            Some(f) => Self::adhoc(f),
+            None => Self::load(),
+        }
+    }
+
+    /// Build a default config targeting a single source file, no `rv.toml` needed.
+    /// Outputs land in a `build/` dir next to the file.
+    pub fn adhoc(file: &str) -> Result<Self> {
+        let path = PathBuf::from(file);
+        if !path.exists() {
+            bail!("Source file '{}' not found.", path.display());
+        }
+        match path.extension().and_then(|e| e.to_str()) {
+            Some("S" | "s" | "asm" | "c") => {}
+            _ => bail!(
+                "Unsupported file type '{}'. Expected .S, .s, .asm, or .c",
+                path.display()
+            ),
+        }
+        let abs = std::fs::canonicalize(&path)
+            .with_context(|| format!("Failed to resolve path '{}'", path.display()))?;
+        let root = abs.parent().unwrap_or(Path::new(".")).to_path_buf();
+        let name = abs
+            .file_stem()
+            .map(|s| s.to_string_lossy().into_owned())
+            .unwrap_or_else(|| "a".into());
+
+        Ok(Config {
+            project: Project { name },
+            target: Target::default(),
+            sources: Sources::default(),
+            toolchain: Toolchain::default(),
+            build: Build::default(),
+            link: Link::default(),
+            compile: Compile::default(),
+            output: Output::default(),
+            qemu: Qemu::default(),
+            root: Some(root),
+            entry: Some(abs),
+        })
+    }
+
     fn find_config() -> Result<PathBuf> {
         let cwd = std::env::current_dir()?;
         let mut dir = cwd.as_path();
@@ -241,6 +294,9 @@ impl Config {
     }
 
     pub fn project_root(&self) -> Result<PathBuf> {
+        if let Some(root) = &self.root {
+            return Ok(root.clone());
+        }
         let path = Self::find_config()?;
         Ok(path.parent().unwrap().to_path_buf())
     }

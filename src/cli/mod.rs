@@ -22,40 +22,58 @@ enum Command {
     },
     /// Compile source files
     Build {
+        /// Build a standalone file instead of the rv.toml project
+        file: Option<String>,
         /// Print commands as they execute
         #[arg(short, long)]
         verbose: bool,
     },
     /// Build and run in QEMU
     Run {
+        /// Run a standalone file instead of the rv.toml project
+        file: Option<String>,
         /// Print commands as they execute
         #[arg(short, long)]
         verbose: bool,
     },
     /// Start QEMU with GDB attached
     Debug {
+        /// Debug a standalone file instead of the rv.toml project
+        file: Option<String>,
         /// Print commands as they execute
         #[arg(short, long)]
         verbose: bool,
     },
     /// Disassemble the ELF binary
     Disasm {
+        /// Disassemble a standalone file instead of the rv.toml project
+        file: Option<String>,
         /// Interleave source lines with disassembly
         #[arg(short, long)]
         source: bool,
     },
     /// Display symbols from the ELF binary
-    Symbols,
+    Symbols {
+        /// Inspect a standalone file instead of the rv.toml project
+        file: Option<String>,
+    },
     /// Display ELF sections
-    Sections,
+    Sections {
+        /// Inspect a standalone file instead of the rv.toml project
+        file: Option<String>,
+    },
     /// Hex dump of the ELF binary
     Hex {
+        /// Inspect a standalone file instead of the rv.toml project
+        file: Option<String>,
         /// Dump a specific section
         #[arg(short, long)]
         section: Option<String>,
     },
     /// Visualize ELF memory map
     Memmap {
+        /// Inspect a standalone file instead of the rv.toml project
+        file: Option<String>,
         /// Print commands as they execute
         #[arg(short, long)]
         verbose: bool,
@@ -74,16 +92,16 @@ impl Cli {
     pub fn run(self) -> Result<()> {
         match self.command {
             Command::New { name, template } => commands::new::run(&name, &template),
-            Command::Build { verbose } => commands::build::run(verbose),
-            Command::Run { verbose } => commands::run::run(verbose),
-            Command::Debug { verbose } => commands::debug::run(verbose),
-            Command::Disasm { source } => commands::disasm::run(source),
-            Command::Symbols => commands::symbols::run(),
-            Command::Sections => commands::sections::run(),
-            Command::Hex { section } => {
-                commands::hex::run(section.as_deref())
+            Command::Build { file, verbose } => commands::build::run(file.as_deref(), verbose),
+            Command::Run { file, verbose } => commands::run::run(file.as_deref(), verbose),
+            Command::Debug { file, verbose } => commands::debug::run(file.as_deref(), verbose),
+            Command::Disasm { file, source } => commands::disasm::run(file.as_deref(), source),
+            Command::Symbols { file } => commands::symbols::run(file.as_deref()),
+            Command::Sections { file } => commands::sections::run(file.as_deref()),
+            Command::Hex { file, section } => {
+                commands::hex::run(file.as_deref(), section.as_deref())
             }
-            Command::Memmap { verbose } => commands::memmap::run(verbose),
+            Command::Memmap { file, verbose } => commands::memmap::run(file.as_deref(), verbose),
             Command::Clean => commands::clean::run(),
             Command::Watch => commands::watch::run(),
         }

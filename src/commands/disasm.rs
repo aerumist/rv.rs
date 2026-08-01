@@ -7,8 +7,8 @@ use colored::Colorize;
 use crate::compiler;
 use crate::config::Config;
 
-pub fn run(source: bool) -> Result<()> {
-    let config = Config::load()?;
+pub fn run(file: Option<&str>, source: bool) -> Result<()> {
+    let config = Config::load_or_adhoc(file)?;
     let target = config.resolve_target(None);
 
     compiler::gcc::run(&config, false)?;
