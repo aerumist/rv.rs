@@ -92,6 +92,11 @@ fn compile_asm(config: &Config, src: &Path, obj: &Path, verbose: bool) -> Result
     for flag in &config.build.assembler_flags {
         cmd.arg(flag);
     }
+    // gcc infers language from extension; .asm is unknown to it (treated as a
+    // linker input and silently dropped under -c), so name it explicitly.
+    if src.extension().and_then(|e| e.to_str()) == Some("asm") {
+        cmd.arg("-x").arg("assembler-with-cpp");
+    }
     cmd.arg(src);
     cmd.arg("-o");
     cmd.arg(obj);
