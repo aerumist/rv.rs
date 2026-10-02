@@ -334,16 +334,6 @@ See [ROADMAP.md](ROADMAP.md) for the full plan. Highlights:
 
 Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
-## Star History
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/chart/github/stars/aerumist/rv.rs.svg?mode=dark&theme=violet">
-    <source media="(prefers-color-scheme: light)" srcset="https://shieldcn.dev/chart/github/stars/aerumist/rv.rs.svg?mode=light&theme=violet">
-    <img src="https://shieldcn.dev/chart/github/stars/aerumist/rv.rs.svg?mode=dark&theme=violet" alt="Star History" width="100%">
-  </picture>
-</p>
-
 ## License
 
 [MIT](LICENSE) &copy; 2026 Tahsin Ahmed
